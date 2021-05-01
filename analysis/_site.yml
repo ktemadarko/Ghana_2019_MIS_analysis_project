@@ -1,7 +1,7 @@
-name: "Ghana_2019_MIS_analysis_project"
+name: Ghana_2019_MIS_analysis_project
 output_dir: ../docs
 navbar:
-  title: "Ghana_2019_MIS_analysis_project"
+  title: Ghana_2019_MIS_analysis_project
   left:
   - text: Home
     href: index.html
@@ -9,6 +9,10 @@ navbar:
     href: about.html
   - text: License
     href: license.html
+  right:
+  - icon: fa-github
+    text: Source code
+    href: https://github.com/ktemadarko/Ghana_2019_MIS_analysis_project
 output:
   workflowr::wflow_html:
     toc: yes

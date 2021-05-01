@@ -8,4 +8,6 @@ editor_options:
   chunk_output_type: console
 ---
 
-Welcome to my research website.
+Akwaaba to my research website.
+
+Click on this [link](first-analysis.html) to see my results.

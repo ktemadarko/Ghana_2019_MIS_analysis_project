@@ -1,0 +1,16 @@
+---
+title: "first-analysis"
+author: "ktemadarko"
+date: "2021-05-01"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+
+### Data from Ghana Malaria Indicator Survey 2019
+
+```{r}
+
+```

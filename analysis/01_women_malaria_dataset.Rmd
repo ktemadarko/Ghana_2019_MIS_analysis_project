@@ -11,13 +11,12 @@ editor_options:
 
 ### Data from Ghana Malaria Indicator Survey 2019
 
-
 ```{r shared-code, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
 source(here::here("code/functions.R"))
 
 ```
 
-```{r load packages, message=FALSE, warning=FALSE, include=FALSE}
+```{r load_packages, message=FALSE, warning=FALSE, include=FALSE}
 Sys.setenv(tz="GMT")
 library(tidyverse)
 library(haven)
@@ -25,6 +24,9 @@ library(survey)
 library(srvyr)
 library(flextable)
 library(magrittr)
+
+library(table1)
+library(gtsummary)
 ```
 
 #### Stata Data Preprocessing
@@ -47,7 +49,7 @@ To create categorical variable binary Allow_mal_vaccine, with 2 levels by recodi
 
 -   "Yes" (Yes will allow child to be vaccinated)
 
-```{r allow_mal variable, message=FALSE, warning=FALSE, include=FALSE}
+```{r allow_mal_variable, message=FALSE, warning=FALSE, include=FALSE}
 #recode s512 (0 8 =0 "No") (1=1 "Yes"), gen (Allow_mal_vaccine)
 ```
 
@@ -58,38 +60,45 @@ wm <- tibble(women_malaria)
 
 ```
 
-create new variable wm1 to preserve wm
-wm1 subset of data where living children== yes
-```{r wm1 creation, message=FALSE, warning=FALSE, include=FALSE}
+#### Data Processing in R
+
+Started with 5181 observations
+
+-   Removed 1436 observations that is women without living children
+
+    -   Removed 201 observations that is women whose age info v14 was not complete
+
+Create new variable wm1 to preserve wm wm1 subset of data where living children== yes
+
+```{r wm1_creation, message=FALSE, warning=FALSE, include=FALSE}
 #create new variable wm1 to preserve wm
 wm1=wm%>%
-  filter(Living_Children==1)
+  filter(Living_Children==1)%>%
+#Removed 1436 observations that is women without living children
+  filter(v014==1)
+#Removed 201 observations that is women whose age info v14 was not complete
 
 #write data to stata
 #write_dta(wm1,"Living_Children.dta")
 
-```
 
-
-
-```{r find_column index from labels, message=FALSE, warning=FALSE, inlude=FALSE}
-match("v024", names(wm1)) #column 28
-match("s510", names(wm1)) #column 1513
-match("s512", names(wm1)) #column 1515
-match("s511", names(wm1)) #column 1514
-match("Living_Children", names(wm1)) #column 1739
-match("Allow_mal_vaccine", names(wm1))
-```
-
-```{r 01_surveyset, include=FALSE}
- # mutate(across(c(28,1513:1515,1739),drop_levels))
+# mutate(across(c(28,1513:1515,1739),drop_levels))
 wm1%<>%
-  mutate(across(c(28),str_to_title))%>%
-  mutate(across(c(28,1513:1515,1739,1740),as_factor))%>%
-  rename(Region=v024)
+  mutate(across(c(16,17,28,29,47,62,63,73,84,462,463,1513:1515,1739,1740,1741),as_factor))%>%
+  mutate(across(c(28,29,47,62,63,73,84),str_to_title))%>%
+  mutate(across(c(16,17,28,29,47,62,63,73,84,462,463,1513:1515,1739,1740,1741),as_factor))%>%
+  rename(Region=v024,
+         Current_age=v012,
+         Place_of_residence= v025,
+         Religious_affiliation=v130,
+         Gender_of_household_head = v151,
+         Wealth_quintile=v190,
+         Educational_level= v106,
+         Living_children=v220,
+         Age= v013)
   
 
-summary(wm1[,c(28,1513:1515,1739,1740)])
+summary(wm1[,c(16,17,28,29,47,62,63,73,84,462,1513:1515,1739,1740)])
 
 #survey_set
 women_svy<-wm1%>%
@@ -97,6 +106,45 @@ women_svy<-wm1%>%
 
 ```
 
+```{r match_column index from labels, echo=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+match("v024", names(wm1)) #column 28
+match("s510", names(wm1)) #column 1513
+match("s512", names(wm1)) #column 1515
+match("s511", names(wm1)) #column 1514 #heard about malaria vaccine
+match("Living_Children", names(wm1)) #column 1739
+match("Allow_mal_vaccine", names(wm1))
+
+match("v012", names(wm1)) #column 15 #current age
+match("v014", names(wm1)) #column 17 #completeness of age info
+
+match("v025", names(wm1)) #column 29 #urban or rural
+match("v013", names(wm1)) #column 16 age in 5 year groups
+
+match("v106", names(wm1)) #column 29 #factor educational level
+match("v013", names(wm1)) #column 16 age in 5 year groups
+
+#match("v025", names(wm1)) #column 29
+match("v013", names(wm1)) #column 16 age in 5 year groups
+
+match("v136", names(wm1)) #column 29 # household members
+match("v137", names(wm1)) #column 16 number of children under 5 in the household at the time of the survey 
+
+match("v220", names(wm1)) #column 463  living Children grouped
+match("v013", names(wm1)) #column 16 age in 5 year groups
+
+
+match("v130", names(wm1)) #column 62 religion
+match("v131", names(wm1)) #column 63 ethnicity
+
+match("v151", names(wm1)) #column 73 gender of household head
+match("v190", names(wm1)) #column 84 wealth quintile
+
+match("v219", names(wm1)) #column 462 living children not grouped
+
+match("Ethinicity", names(wm)) #column 16 age in 5 year groups
+```
+
+#### Description of Variables
 
 ```{r description, message=FALSE, warning=FALSE, include=FALSE}
 explanatory=tibble(Variable=c("Living Children"),
@@ -119,6 +167,9 @@ ft1%<>%theme_vanilla()%>%
 
 ft1
 
+#print(ft1, preview = "docx")
+
+#save_as_docx("my table" = ft, path = "/path/to/file.docx")
 
 ft2%<>%theme_vanilla()%>%
   set_caption(caption="Table 1.2- Description of explanatory variables of interest")
@@ -128,8 +179,8 @@ ft2
 
 ----- Survey Analysis----------------------------------
 
+#### Tabulate Allow child to take malaria vaccine over Region
 
-Tabulate Allow child to take malaria vaccine over Region 
 ```{r 02_svy_tab, message=FALSE, warning=FALSE, include=FALSE}
 #tabulate Living Children by know about mal vaccine and accept mal vaccine for child
 #create output table with flextable package
@@ -153,18 +204,149 @@ ft3 %<>%theme_vanilla()%>%
 
 
 
+svymean(~Allow_mal_vaccine, women_svy)
+a=svymean(~Age, women_svy)
+
+
+```
+
+
+```{r merging_table_1, include=FALSE}
+out1 <- women_svy%>%
+          group_by(Age)%>%
+          summarise(Percentage=round(survey_mean(),4)*100)
+
+out2 <- women_svy%>%
+          group_by(Educational_level)%>%
+          summarise(Percentage=round(survey_mean(),4)*100)
+
+out3 <- women_svy%>%
+          group_by(Ethnicity)%>%
+          summarise(Percentage=round(survey_mean(),4)*100)
+
+
+out4 <- women_svy%>%
+          group_by(Place_of_residence)%>%
+          summarise(Percentage=round(survey_mean(),4)*100)
+
+out5 <- women_svy%>%
+          group_by(Gender_of_household_head)%>%
+          summarise(Percentage=round(survey_mean(),4)*100)
+
+out6 <- women_svy%>%
+          group_by(Living_children)%>%
+          summarise(Percentage=round(survey_mean(),4)*100)
+
+
+out7 <- women_svy%>%
+          group_by(Wealth_quintile)%>%
+          summarise(Percentage=round(survey_mean(),4)*100)
+
+
+t1 <- flextable(out1[,-c(3)])
+
+t2 <- flextable(out2[,-c(3)])#%>%
+  #set_header_labels(Percentage= " ")
+
+#ftry <- flextable(data.table::rbindlist(t1$body$dataset,t2$body$dataset))%>%
+  #set_header_labels(Age= " ",Educational_level= " ")%>%
+ # align(j,align="left")
+ 
+t3 <- flextable(out3[,-c(3)])
+t4 <- flextable(out4[,-c(3)])
+t5 <- flextable(out5[,-c(3)])
+t6 <- flextable(out6[,-c(3)])
+t7 <- flextable(out7[,-c(3)])
+```
+
+
+<br>
+
+#### Table 1 Characteristics of participants
+
+```{r Table_1, message=FALSE, warning=FALSE, include=FALSE}
+#wm1%>%table1(~Current_age | Allow_mal_vaccine)
+
+ft4 <- as_flex_table(wm1%>%
+    select(Age, Educational_level, Ethnicity, Place_of_residence,Gender_of_household_head, Living_children,Wealth_quintile)%>%
+    tbl_summary(
+                statistic = all_continuous() ~ "{mean}")%>%
+    bold_labels())
+  #modify_header(all_stat_cols() ~ "({style_percent(p)}%)") %>%
+  #add_n() %>%
+
+t1 <-wm1%>%
+    select(Age, Educational_level, Ethnicity, Place_of_residence,Gender_of_household_head, Living_children,Wealth_quintile)%>%
+    tbl_summary(
+                statistic = all_continuous() ~ "{mean}")%>%
+    bold_labels()
+  
+
+wm1%>%
+  select(Age, Allow_mal_vaccine,Educational_level, Ethnicity, Place_of_residence,Gender_of_household_head, Living_children,Wealth_quintile)%>%
+  tbl_summary(by=Allow_mal_vaccine,
+              statistic = all_continuous() ~ "{mean}")%>%
+  modify_header(all_stat_cols() ~ "**{level}**<br>N =  {n} ({style_percent(p)}%)") %>%
+  bold_labels() %>%
+  modify_spanning_header(all_stat_cols() ~ "**Allow Child to take Malaria Vaccine**")
+ #add_n() %>%
 ```
 
 <br>
-Tabulate Living Children by know about mal vaccine and accept mal vaccine for child
+
+#### Table 1- Socio-Demographic Characteristics of the subset of Women's Survey data from the 2019 Ghana Malaria Indicator Survey
+
+```{r ft4_output, message=FALSE, warning=FALSE, include=FALSE}
+ft4 %<>%
+  set_caption(caption="Table 1.4- Socio-Demographic Characteristics of Female Survey Participants")
+#print(ft4, preview = "docx") 
+#theme_vanilla()%>%
+```
+
+
+```{r t1, message=FALSE, warning=FALSE}
+t1 
+t2 
+t3 
+t4 
+t5 
+t6 
+t7 
+```
+
+<br> Tabulate Living Children by know about mal vaccine and accept mal vaccine for child
+
 ```{r flextable output1, message=FALSE, warning=FALSE}
 ft3
 
 
 ```
 
-<br>
 
-```{r flextable output2, message=FALSE, warning=FALSE, include=FALSE}
-#ft4
+```{r tests, include=FALSE}
+
+#class(wm1$Allow_mal_vaccine)
+#class(wm1$Current_age)
+
+wm1%>%
+  select(Allow_mal_vaccine, Current_age)%>%
+  summary()
+
+wm1%>%
+  select(Allow_mal_vaccine, Current_age)%>%
+  filter(Allow_mal_vaccine== "No")%>%
+  summary()
+
+wm1%>%
+  select(Allow_mal_vaccine, Current_age)%>%
+  filter(Allow_mal_vaccine== "Yes")%>%
+  summary()
+
+wm1%>%
+  select(Allow_mal_vaccine, Current_age)%>%
+  filter(Allow_mal_vaccine== "No")%>%
+  summary()
+
+
+
 ```

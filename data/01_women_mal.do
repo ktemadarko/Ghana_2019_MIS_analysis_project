@@ -18,9 +18,11 @@ svyset v021 [pw=wgt],strata(v023)
 
 //women 15-49 heard or seen mal messages s501 over region v024
 svy:mean s501, over(v024)
-
+svy:mean Allow_mal_vaccine, over(v024)
 //create new variable allow_mal_vaccine by recode s512 with removing don't know level
 
-drop allow_mal_vaccine
-recode s512 (0 8 =0 "No") (1=1 "Yes"), gen (Allow_mal_vaccine)
+//drop allow_mal_vaccine
+//recode s512 (0 8 =0 "No") (1=1 "Yes"), gen (Allow_mal_vaccine)
+
+//label variable v012 "Respondent's current age"
 log close

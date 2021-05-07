@@ -476,16 +476,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomktemadarkoGhana2019MISanalysisprojecttree60f35a3aeaa53642eb45c26f1267bbf44be7d581targetblank60f35a3a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/ktemadarko/Ghana_2019_MIS_analysis_project/tree/60f35a3aeaa53642eb45c26f1267bbf44be7d581" target="_blank">60f35a3</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomktemadarkoGhana2019MISanalysisprojecttree34d5f3b5a687f79f43285541a11f4482684a770ctargetblank34d5f3ba"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/ktemadarko/Ghana_2019_MIS_analysis_project/tree/34d5f3b5a687f79f43285541a11f4482684a770c" target="_blank">34d5f3b</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomktemadarkoGhana2019MISanalysisprojecttree60f35a3aeaa53642eb45c26f1267bbf44be7d581targetblank60f35a3a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomktemadarkoGhana2019MISanalysisprojecttree34d5f3b5a687f79f43285541a11f4482684a770ctargetblank34d5f3ba" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/ktemadarko/Ghana_2019_MIS_analysis_project/tree/60f35a3aeaa53642eb45c26f1267bbf44be7d581" target="_blank">60f35a3</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/ktemadarko/Ghana_2019_MIS_analysis_project/tree/34d5f3b5a687f79f43285541a11f4482684a770c" target="_blank">34d5f3b</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -495,11 +495,18 @@ Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
 
+Untracked files:
+    Untracked:  Living_Children.dta
+    Untracked:  output/01_table.png
+
 Unstaged changes:
     Modified:   analysis/01_women_malaria_dataset.Rmd
-    Modified:   analysis/02_children_malaria_dataset.Rmd
-    Deleted:    analysis/analysis_children_dataset.Rmd
-    Deleted:    analysis/first-analysis.Rmd
+    Modified:   code/functions.R
+    Modified:   data/01_child_mal.do
+    Modified:   data/01_w_mal.log
+    Modified:   data/01_women_mal.do
+    Deleted:    data/Living_Children.dta
+    Modified:   data/women_malaria.dta
 
 </code></pre>
 <p>
@@ -543,6 +550,40 @@ Message
 Rmd
 </td>
 <td>
+<a href="https://github.com/ktemadarko/Ghana_2019_MIS_analysis_project/blob/b23febb76c13ac5797ee2831e44ebcddef2bf86f/analysis/01_women_malaria_dataset.Rmd" target="_blank">b23febb</a>
+</td>
+<td>
+ktemadarko
+</td>
+<td>
+2021-05-07
+</td>
+<td>
+Changing the name of rmd files
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/ktemadarko/Ghana_2019_MIS_analysis_project/b23febb76c13ac5797ee2831e44ebcddef2bf86f/docs/01_women_malaria_dataset.html" target="_blank">b23febb</a>
+</td>
+<td>
+ktemadarko
+</td>
+<td>
+2021-05-07
+</td>
+<td>
+Changing the name of rmd files
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
 <a href="https://github.com/ktemadarko/Ghana_2019_MIS_analysis_project/blob/60f35a3aeaa53642eb45c26f1267bbf44be7d581/analysis/01_women_malaria_dataset.Rmd" target="_blank">60f35a3</a>
 </td>
 <td>
@@ -578,20 +619,21 @@ Building my website
 <li><p>“No” (Not allow child to be vaccinated)</p></li>
 <li><p>“Yes” (Yes will allow child to be vaccinated)</p></li>
 </ul>
-<p>create new variable wm1 to preserve wm wm1 subset of data where living children== yes</p>
-<pre class="r"><code>match(&quot;v024&quot;, names(wm1)) #column 28</code></pre>
-<pre><code>[1] 28</code></pre>
-<pre class="r"><code>match(&quot;s510&quot;, names(wm1)) #column 1513</code></pre>
-<pre><code>[1] 1513</code></pre>
-<pre class="r"><code>match(&quot;s512&quot;, names(wm1)) #column 1515</code></pre>
-<pre><code>[1] 1515</code></pre>
-<pre class="r"><code>match(&quot;s511&quot;, names(wm1)) #column 1514</code></pre>
-<pre><code>[1] 1514</code></pre>
-<pre class="r"><code>match(&quot;Living_Children&quot;, names(wm1)) #column 1739</code></pre>
-<pre><code>[1] 1739</code></pre>
-<pre class="r"><code>match(&quot;Allow_mal_vaccine&quot;, names(wm1))</code></pre>
-<pre><code>[1] 1740</code></pre>
-<template id="609dcf31-641c-406f-bd24-80740f0af23b"><style>
+</div>
+<div id="data-processing-in-r" class="section level4">
+<h4>Data Processing in R</h4>
+<p>Started with 5181 observations</p>
+<ul>
+<li><p>Removed 1436 observations that is women without living children</p>
+<ul>
+<li>Removed 201 observations that is women whose age info v14 was not complete</li>
+</ul></li>
+</ul>
+<p>Create new variable wm1 to preserve wm wm1 subset of data where living children== yes</p>
+</div>
+<div id="description-of-variables" class="section level4">
+<h4>Description of Variables</h4>
+<template id="a587aa48-8d8a-4da7-a50e-8346970123c6"><style>
 .tabwid table{
   border-collapse:collapse;
   line-height:1;
@@ -625,11 +667,11 @@ Building my website
 .tabwid table tr {
 background-color: transparent;
 }
-</style><div class="tabwid"><style>.cl-60b4ad28{border-collapse:collapse;}.cl-60aace48{font-family:'Arial';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-60aace49{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-60aace4a{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-60aace4b{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-60aace4c{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-60b4ad28'><caption class="Table Caption">Table 1.1- Description of response variable of interest</caption><thead><tr style="overflow-wrap:break-word;"><td class="cl-60aace4c"><p class="cl-60aace4a"><span class="cl-60aace48">Variable</span></p></td><td class="cl-60aace4c"><p class="cl-60aace4a"><span class="cl-60aace48">Operational Description</span></p></td><td class="cl-60aace4c"><p class="cl-60aace4a"><span class="cl-60aace48">Scale of Measurement</span></p></td><td class="cl-60aace4c"><p class="cl-60aace4a"><span class="cl-60aace48">Levels</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-60aace4b"><p class="cl-60aace4a"><span class="cl-60aace49">Allow_mal_vaccine</span></p></td><td class="cl-60aace4b"><p class="cl-60aace4a"><span class="cl-60aace49">Will the womean allow her child to be vaccinated</span></p></td><td class="cl-60aace4b"><p class="cl-60aace4a"><span class="cl-60aace49">Binary</span></p></td><td class="cl-60aace4b"><p class="cl-60aace4a"><span class="cl-60aace49">Yes or No</span></p></td></tr></tbody></table></div></template>
-<div class="flextable-shadow-host" id="5dcee8e1-05ad-4825-a0ee-f18aa5e2b2ac"></div>
+</style><div class="tabwid"><style>.cl-5216049a{border-collapse:collapse;}.cl-52079298{font-family:'Arial';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-52079299{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-5207dba4{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-52087bd6{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-52087bd7{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-5216049a'><caption class="Table Caption">Table 1.1- Description of response variable of interest</caption><thead><tr style="overflow-wrap:break-word;"><td class="cl-52087bd7"><p class="cl-5207dba4"><span class="cl-52079298">Variable</span></p></td><td class="cl-52087bd7"><p class="cl-5207dba4"><span class="cl-52079298">Operational Description</span></p></td><td class="cl-52087bd7"><p class="cl-5207dba4"><span class="cl-52079298">Scale of Measurement</span></p></td><td class="cl-52087bd7"><p class="cl-5207dba4"><span class="cl-52079298">Levels</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-52087bd6"><p class="cl-5207dba4"><span class="cl-52079299">Allow_mal_vaccine</span></p></td><td class="cl-52087bd6"><p class="cl-5207dba4"><span class="cl-52079299">Will the womean allow her child to be vaccinated</span></p></td><td class="cl-52087bd6"><p class="cl-5207dba4"><span class="cl-52079299">Binary</span></p></td><td class="cl-52087bd6"><p class="cl-5207dba4"><span class="cl-52079299">Yes or No</span></p></td></tr></tbody></table></div></template>
+<div class="flextable-shadow-host" id="a63c028f-54f2-4292-bd84-fe0dc6c36560"></div>
 <script>
-var dest = document.getElementById("5dcee8e1-05ad-4825-a0ee-f18aa5e2b2ac");
-var template = document.getElementById("609dcf31-641c-406f-bd24-80740f0af23b");
+var dest = document.getElementById("a63c028f-54f2-4292-bd84-fe0dc6c36560");
+var template = document.getElementById("a587aa48-8d8a-4da7-a50e-8346970123c6");
 var caption = template.content.querySelector("caption");
 if(caption) {
   caption.style.cssText = "display:block;text-align:center;";
@@ -642,7 +684,7 @@ var templateContent = template.content;
 fantome.appendChild(templateContent);
 </script>
 
-<template id="84d9c883-195e-419c-9359-b24aad78f2f3"><style>
+<template id="0ff010ea-6faa-488a-8922-a11398cb09e9"><style>
 .tabwid table{
   border-collapse:collapse;
   line-height:1;
@@ -676,11 +718,11 @@ fantome.appendChild(templateContent);
 .tabwid table tr {
 background-color: transparent;
 }
-</style><div class="tabwid"><style>.cl-60c4767c{border-collapse:collapse;}.cl-60bb7482{font-family:'Arial';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-60bb7483{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-60bb8d14{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-60bc01fe{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-60bc01ff{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-60c4767c'><caption class="Table Caption">Table 1.2- Description of explanatory variables of interest</caption><thead><tr style="overflow-wrap:break-word;"><td class="cl-60bc01ff"><p class="cl-60bb8d14"><span class="cl-60bb7482">Variable</span></p></td><td class="cl-60bc01ff"><p class="cl-60bb8d14"><span class="cl-60bb7482">Operational Description</span></p></td><td class="cl-60bc01ff"><p class="cl-60bb8d14"><span class="cl-60bb7482">Scale of Measurement</span></p></td><td class="cl-60bc01ff"><p class="cl-60bb8d14"><span class="cl-60bb7482">Levels</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-60bc01fe"><p class="cl-60bb8d14"><span class="cl-60bb7483">Living Children</span></p></td><td class="cl-60bc01fe"><p class="cl-60bb8d14"><span class="cl-60bb7483">Whether the Woman interviewed has living children</span></p></td><td class="cl-60bc01fe"><p class="cl-60bb8d14"><span class="cl-60bb7483">Binary</span></p></td><td class="cl-60bc01fe"><p class="cl-60bb8d14"><span class="cl-60bb7483">Yes or No</span></p></td></tr></tbody></table></div></template>
-<div class="flextable-shadow-host" id="0f16619e-52e2-4cc0-af08-88f0292d8680"></div>
+</style><div class="tabwid"><style>.cl-522932c2{border-collapse:collapse;}.cl-521e6f22{font-family:'Arial';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-521e6f23{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-521e9772{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-521ed0ac{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-521ed0ad{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-522932c2'><caption class="Table Caption">Table 1.2- Description of explanatory variables of interest</caption><thead><tr style="overflow-wrap:break-word;"><td class="cl-521ed0ad"><p class="cl-521e9772"><span class="cl-521e6f22">Variable</span></p></td><td class="cl-521ed0ad"><p class="cl-521e9772"><span class="cl-521e6f22">Operational Description</span></p></td><td class="cl-521ed0ad"><p class="cl-521e9772"><span class="cl-521e6f22">Scale of Measurement</span></p></td><td class="cl-521ed0ad"><p class="cl-521e9772"><span class="cl-521e6f22">Levels</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-521ed0ac"><p class="cl-521e9772"><span class="cl-521e6f23">Living Children</span></p></td><td class="cl-521ed0ac"><p class="cl-521e9772"><span class="cl-521e6f23">Whether the Woman interviewed has living children</span></p></td><td class="cl-521ed0ac"><p class="cl-521e9772"><span class="cl-521e6f23">Binary</span></p></td><td class="cl-521ed0ac"><p class="cl-521e9772"><span class="cl-521e6f23">Yes or No</span></p></td></tr></tbody></table></div></template>
+<div class="flextable-shadow-host" id="c360f4bc-96f7-42a6-abfa-6da9a126de04"></div>
 <script>
-var dest = document.getElementById("0f16619e-52e2-4cc0-af08-88f0292d8680");
-var template = document.getElementById("84d9c883-195e-419c-9359-b24aad78f2f3");
+var dest = document.getElementById("c360f4bc-96f7-42a6-abfa-6da9a126de04");
+var template = document.getElementById("0ff010ea-6faa-488a-8922-a11398cb09e9");
 var caption = template.content.querySelector("caption");
 if(caption) {
   caption.style.cssText = "display:block;text-align:center;";
@@ -694,10 +736,534 @@ fantome.appendChild(templateContent);
 </script>
 
 <p>—– Survey Analysis———————————-</p>
-<p>Tabulate Allow child to take malaria vaccine over Region</p>
-<p><br> Tabulate Living Children by know about mal vaccine and accept mal vaccine for child</p>
-<pre class="r"><code>ft3</code></pre>
-<template id="021d6db6-f008-475f-91aa-d7783babe950"><style>
+</div>
+<div id="tabulate-allow-child-to-take-malaria-vaccine-over-region" class="section level4">
+<h4>Tabulate Allow child to take malaria vaccine over Region</h4>
+<p><br></p>
+</div>
+<div id="table-1-characteristics-of-participants" class="section level4">
+<h4>Table 1 Characteristics of participants</h4>
+<p><br></p>
+</div>
+<div id="table-1--socio-demographic-characteristics-of-the-subset-of-womens-survey-data-from-the-2019-ghana-malaria-indicator-survey" class="section level4">
+<h4>Table 1- Socio-Demographic Characteristics of the subset of Women’s Survey data from the 2019 Ghana Malaria Indicator Survey</h4>
+<pre class="r"><code>t1 </code></pre>
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#dydekrslpw .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#dydekrslpw .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#dydekrslpw .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#dydekrslpw .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 4px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#dydekrslpw .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dydekrslpw .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#dydekrslpw .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#dydekrslpw .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#dydekrslpw .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#dydekrslpw .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#dydekrslpw .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#dydekrslpw .gt_group_heading {
+  padding: 8px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#dydekrslpw .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#dydekrslpw .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#dydekrslpw .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#dydekrslpw .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#dydekrslpw .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 12px;
+}
+
+#dydekrslpw .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dydekrslpw .gt_first_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+}
+
+#dydekrslpw .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dydekrslpw .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#dydekrslpw .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#dydekrslpw .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dydekrslpw .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#dydekrslpw .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding: 4px;
+}
+
+#dydekrslpw .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#dydekrslpw .gt_sourcenote {
+  font-size: 90%;
+  padding: 4px;
+}
+
+#dydekrslpw .gt_left {
+  text-align: left;
+}
+
+#dydekrslpw .gt_center {
+  text-align: center;
+}
+
+#dydekrslpw .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#dydekrslpw .gt_font_normal {
+  font-weight: normal;
+}
+
+#dydekrslpw .gt_font_bold {
+  font-weight: bold;
+}
+
+#dydekrslpw .gt_font_italic {
+  font-style: italic;
+}
+
+#dydekrslpw .gt_super {
+  font-size: 65%;
+}
+
+#dydekrslpw .gt_footnote_marks {
+  font-style: italic;
+  font-size: 65%;
+}
+</style>
+<div id="dydekrslpw" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1"><strong>Characteristic</strong></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1"><strong>N = 3,544</strong><sup class="gt_footnote_marks">1</sup></th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr>
+      <td class="gt_row gt_left" style="font-weight: bold;">Age in 5-year groups</td>
+      <td class="gt_row gt_center"></td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left" style="text-align: left; text-indent: 10px;">15-19</td>
+      <td class="gt_row gt_center">146 (4.1%)</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left" style="text-align: left; text-indent: 10px;">20-24</td>
+      <td class="gt_row gt_center">486 (14%)</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left" style="text-align: left; text-indent: 10px;">25-29</td>
+      <td class="gt_row gt_center">704 (20%)</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left" style="text-align: left; text-indent: 10px;">30-34</td>
+      <td class="gt_row gt_center">658 (19%)</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left" style="text-align: left; text-indent: 10px;">35-39</td>
+      <td class="gt_row gt_center">611 (17%)</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left" style="text-align: left; text-indent: 10px;">40-44</td>
+      <td class="gt_row gt_center">508 (14%)</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left" style="text-align: left; text-indent: 10px;">45-49</td>
+      <td class="gt_row gt_center">431 (12%)</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left" style="font-weight: bold;">Educational_level</td>
+      <td class="gt_row gt_center"></td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left" style="text-align: left; text-indent: 10px;">Primary</td>
+      <td class="gt_row gt_center">719 (20%)</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left" style="text-align: left; text-indent: 10px;">Secondary</td>
+      <td class="gt_row gt_center">1,655 (47%)</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left" style="text-align: left; text-indent: 10px;">No Education</td>
+      <td class="gt_row gt_center">976 (28%)</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left" style="text-align: left; text-indent: 10px;">Higher</td>
+      <td class="gt_row gt_center">194 (5.5%)</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left" style="font-weight: bold;">RECODE of v131 (Ethnicity)</td>
+      <td class="gt_row gt_center"></td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left" style="text-align: left; text-indent: 10px;">Akan</td>
+      <td class="gt_row gt_center">1,293 (36%)</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left" style="text-align: left; text-indent: 10px;">Ewe</td>
+      <td class="gt_row gt_center">505 (14%)</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left" style="text-align: left; text-indent: 10px;">Ga-Adangme</td>
+      <td class="gt_row gt_center">172 (4.9%)</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left" style="text-align: left; text-indent: 10px;">Mole-Dagbani</td>
+      <td class="gt_row gt_center">1,042 (29%)</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left" style="text-align: left; text-indent: 10px;">Other Ethnicities</td>
+      <td class="gt_row gt_center">532 (15%)</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left" style="font-weight: bold;">Place_of_residence</td>
+      <td class="gt_row gt_center"></td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left" style="text-align: left; text-indent: 10px;">Urban</td>
+      <td class="gt_row gt_center">1,546 (44%)</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left" style="text-align: left; text-indent: 10px;">Rural</td>
+      <td class="gt_row gt_center">1,998 (56%)</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left" style="font-weight: bold;">Gender_of_household_head</td>
+      <td class="gt_row gt_center"></td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left" style="text-align: left; text-indent: 10px;">Male</td>
+      <td class="gt_row gt_center">2,334 (66%)</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left" style="text-align: left; text-indent: 10px;">Female</td>
+      <td class="gt_row gt_center">1,210 (34%)</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left" style="font-weight: bold;">Living_children</td>
+      <td class="gt_row gt_center"></td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left" style="text-align: left; text-indent: 10px;">1</td>
+      <td class="gt_row gt_center">806 (23%)</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left" style="text-align: left; text-indent: 10px;">2</td>
+      <td class="gt_row gt_center">756 (21%)</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left" style="text-align: left; text-indent: 10px;">3</td>
+      <td class="gt_row gt_center">641 (18%)</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left" style="text-align: left; text-indent: 10px;">4</td>
+      <td class="gt_row gt_center">536 (15%)</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left" style="text-align: left; text-indent: 10px;">5</td>
+      <td class="gt_row gt_center">363 (10%)</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left" style="text-align: left; text-indent: 10px;">6+</td>
+      <td class="gt_row gt_center">442 (12%)</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left" style="font-weight: bold;">Wealth_quintile</td>
+      <td class="gt_row gt_center"></td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left" style="text-align: left; text-indent: 10px;">Poorer</td>
+      <td class="gt_row gt_center">693 (20%)</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left" style="text-align: left; text-indent: 10px;">Middle</td>
+      <td class="gt_row gt_center">711 (20%)</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left" style="text-align: left; text-indent: 10px;">Richer</td>
+      <td class="gt_row gt_center">606 (17%)</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left" style="text-align: left; text-indent: 10px;">Poorest</td>
+      <td class="gt_row gt_center">979 (28%)</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left" style="text-align: left; text-indent: 10px;">Richest</td>
+      <td class="gt_row gt_center">555 (16%)</td>
+    </tr>
+  </tbody>
+  
+  <tfoot>
+    <tr class="gt_footnotes">
+      <td colspan="2">
+        <p class="gt_footnote">
+          <sup class="gt_footnote_marks">
+            <em>1</em>
+          </sup>
+           
+          n (%)
+          <br />
+        </p>
+      </td>
+    </tr>
+  </tfoot>
+</table></div>
+<pre class="r"><code>t2 </code></pre>
+<template id="5739ff5d-cdc9-4297-96c8-665730e9be8b"><style>
 .tabwid table{
   border-collapse:collapse;
   line-height:1;
@@ -731,11 +1297,11 @@ fantome.appendChild(templateContent);
 .tabwid table tr {
 background-color: transparent;
 }
-</style><div class="tabwid"><style>.cl-626aacc6{border-collapse:collapse;}.cl-62610388{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-62610389{font-family:'Arial';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-6261038a{font-family:'Arial';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 255, 1.00);background-color:transparent;}.cl-62612a8e{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-62612a8f{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-62612a90{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-62612a91{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-62612a92{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-62612a93{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-62612a94{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(102, 102, 102, 1.00);border-top: 0.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-62612a95{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(102, 102, 102, 1.00);border-top: 0.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-62612a96{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-62612a97{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-62612a98{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-626aacc6'><caption class="Table Caption">Table 1.3- Percentage of Women aged 15-49 in each region grouped by their choices about the Malaria vaccine</caption><thead><tr style="overflow-wrap:break-word;"><td class="cl-62612a96"><p class="cl-62612a8e"><span class="cl-62610388"> </span></p></td><td  colspan="2"class="cl-62612a96"><p class="cl-62612a8e"><span class="cl-62610388"> Allow Child to take Malaria Vaccine</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-62612a98"><p class="cl-62612a8e"><span class="cl-62610389">Region</span></p></td><td class="cl-62612a97"><p class="cl-62612a8f"><span class="cl-62610389">No</span></p></td><td class="cl-62612a97"><p class="cl-62612a8f"><span class="cl-62610389">Yes</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-62612a90"><p class="cl-62612a8e"><span class="cl-62610388">1</span></p></td><td class="cl-62612a91"><p class="cl-62612a8f"><span class="cl-62610388">7.89</span></p></td><td class="cl-62612a91"><p class="cl-62612a8f"><span class="cl-6261038a">92.11</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-62612a95"><p class="cl-62612a8e"><span class="cl-62610388">2</span></p></td><td class="cl-62612a94"><p class="cl-62612a8f"><span class="cl-62610388">7.34</span></p></td><td class="cl-62612a94"><p class="cl-62612a8f"><span class="cl-6261038a">92.66</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-62612a95"><p class="cl-62612a8e"><span class="cl-62610388">3</span></p></td><td class="cl-62612a94"><p class="cl-62612a8f"><span class="cl-62610388">14.90</span></p></td><td class="cl-62612a94"><p class="cl-62612a8f"><span class="cl-6261038a">85.10</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-62612a95"><p class="cl-62612a8e"><span class="cl-62610388">4</span></p></td><td class="cl-62612a94"><p class="cl-62612a8f"><span class="cl-62610388">9.06</span></p></td><td class="cl-62612a94"><p class="cl-62612a8f"><span class="cl-6261038a">90.94</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-62612a95"><p class="cl-62612a8e"><span class="cl-62610388">5</span></p></td><td class="cl-62612a94"><p class="cl-62612a8f"><span class="cl-62610388">7.19</span></p></td><td class="cl-62612a94"><p class="cl-62612a8f"><span class="cl-6261038a">92.81</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-62612a95"><p class="cl-62612a8e"><span class="cl-62610388">6</span></p></td><td class="cl-62612a94"><p class="cl-62612a8f"><span class="cl-62610388">3.38</span></p></td><td class="cl-62612a94"><p class="cl-62612a8f"><span class="cl-6261038a">96.62</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-62612a95"><p class="cl-62612a8e"><span class="cl-62610388">7</span></p></td><td class="cl-62612a94"><p class="cl-62612a8f"><span class="cl-62610388">3.01</span></p></td><td class="cl-62612a94"><p class="cl-62612a8f"><span class="cl-6261038a">96.99</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-62612a95"><p class="cl-62612a8e"><span class="cl-62610388">8</span></p></td><td class="cl-62612a94"><p class="cl-62612a8f"><span class="cl-62610388">4.17</span></p></td><td class="cl-62612a94"><p class="cl-62612a8f"><span class="cl-6261038a">95.83</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-62612a95"><p class="cl-62612a8e"><span class="cl-62610388">9</span></p></td><td class="cl-62612a94"><p class="cl-62612a8f"><span class="cl-62610388">6.56</span></p></td><td class="cl-62612a94"><p class="cl-62612a8f"><span class="cl-6261038a">93.44</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-62612a92"><p class="cl-62612a8e"><span class="cl-62610388">10</span></p></td><td class="cl-62612a93"><p class="cl-62612a8f"><span class="cl-62610388">7.64</span></p></td><td class="cl-62612a93"><p class="cl-62612a8f"><span class="cl-6261038a">92.36</span></p></td></tr></tbody></table></div></template>
-<div class="flextable-shadow-host" id="66976f6d-1925-4be3-b657-e9a1a514c25b"></div>
+</style><div class="tabwid"><style>.cl-5b25833a{border-collapse:collapse;}.cl-5b19f614{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-5b19f615{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-5b19f616{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-5b1a4a2e{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5b1a4a2f{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5b1a4a30{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5b1a4a31{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5b1a4a32{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5b1a4a33{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-5b25833a'><thead><tr style="overflow-wrap:break-word;"><td class="cl-5b1a4a32"><p class="cl-5b19f615"><span class="cl-5b19f614">Educational_level</span></p></td><td class="cl-5b1a4a33"><p class="cl-5b19f616"><span class="cl-5b19f614">Percentage</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-5b1a4a2f"><p class="cl-5b19f615"><span class="cl-5b19f614">Primary</span></p></td><td class="cl-5b1a4a2e"><p class="cl-5b19f616"><span class="cl-5b19f614">20.83</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5b1a4a2f"><p class="cl-5b19f615"><span class="cl-5b19f614">Secondary</span></p></td><td class="cl-5b1a4a2e"><p class="cl-5b19f616"><span class="cl-5b19f614">51.40</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5b1a4a2f"><p class="cl-5b19f615"><span class="cl-5b19f614">No Education</span></p></td><td class="cl-5b1a4a2e"><p class="cl-5b19f616"><span class="cl-5b19f614">21.45</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5b1a4a30"><p class="cl-5b19f615"><span class="cl-5b19f614">Higher</span></p></td><td class="cl-5b1a4a31"><p class="cl-5b19f616"><span class="cl-5b19f614">6.31</span></p></td></tr></tbody></table></div></template>
+<div class="flextable-shadow-host" id="d4debe7c-8bc2-40fe-8db6-7445f284c934"></div>
 <script>
-var dest = document.getElementById("66976f6d-1925-4be3-b657-e9a1a514c25b");
-var template = document.getElementById("021d6db6-f008-475f-91aa-d7783babe950");
+var dest = document.getElementById("d4debe7c-8bc2-40fe-8db6-7445f284c934");
+var template = document.getElementById("5739ff5d-cdc9-4297-96c8-665730e9be8b");
 var caption = template.content.querySelector("caption");
 if(caption) {
   caption.style.cssText = "display:block;text-align:center;";
@@ -748,7 +1314,319 @@ var templateContent = template.content;
 fantome.appendChild(templateContent);
 </script>
 
-<p><br></p>
+<pre class="r"><code>t3 </code></pre>
+<template id="b4c9ebcb-6d5c-4145-adaa-a81fd6dd78ec"><style>
+.tabwid table{
+  border-collapse:collapse;
+  line-height:1;
+  margin-left:auto;
+  margin-right:auto;
+  border-width: 0;
+  display: table;
+  margin-top: 1.275em;
+  margin-bottom: 1.275em;
+  border-spacing: 0;
+  border-color: transparent;
+}
+.tabwid_left table{
+  margin-left:0;
+}
+.tabwid_right table{
+  margin-right:0;
+}
+.tabwid td {
+    padding: 0;
+}
+.tabwid a {
+  text-decoration: none;
+}
+.tabwid thead {
+    background-color: transparent;
+}
+.tabwid tfoot {
+    background-color: transparent;
+}
+.tabwid table tr {
+background-color: transparent;
+}
+</style><div class="tabwid"><style>.cl-5b394898{border-collapse:collapse;}.cl-5b2e332c{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-5b2e454c{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-5b2e454d{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-5b2e7ea4{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5b2e7ea5{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5b2e7ea6{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5b2e7ea7{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5b2e7ea8{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5b2e7ea9{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-5b394898'><thead><tr style="overflow-wrap:break-word;"><td class="cl-5b2e7ea8"><p class="cl-5b2e454c"><span class="cl-5b2e332c">Ethnicity</span></p></td><td class="cl-5b2e7ea9"><p class="cl-5b2e454d"><span class="cl-5b2e332c">Percentage</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-5b2e7ea4"><p class="cl-5b2e454c"><span class="cl-5b2e332c">Akan</span></p></td><td class="cl-5b2e7ea5"><p class="cl-5b2e454d"><span class="cl-5b2e332c">43.56</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5b2e7ea4"><p class="cl-5b2e454c"><span class="cl-5b2e332c">Ewe</span></p></td><td class="cl-5b2e7ea5"><p class="cl-5b2e454d"><span class="cl-5b2e332c">16.59</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5b2e7ea4"><p class="cl-5b2e454c"><span class="cl-5b2e332c">Ga-Adangme</span></p></td><td class="cl-5b2e7ea5"><p class="cl-5b2e454d"><span class="cl-5b2e332c">6.42</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5b2e7ea4"><p class="cl-5b2e454c"><span class="cl-5b2e332c">Mole-Dagbani</span></p></td><td class="cl-5b2e7ea5"><p class="cl-5b2e454d"><span class="cl-5b2e332c">18.89</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5b2e7ea6"><p class="cl-5b2e454c"><span class="cl-5b2e332c">Other Ethnicities</span></p></td><td class="cl-5b2e7ea7"><p class="cl-5b2e454d"><span class="cl-5b2e332c">14.54</span></p></td></tr></tbody></table></div></template>
+<div class="flextable-shadow-host" id="27de663a-425a-413a-bf43-d9b2c4088655"></div>
+<script>
+var dest = document.getElementById("27de663a-425a-413a-bf43-d9b2c4088655");
+var template = document.getElementById("b4c9ebcb-6d5c-4145-adaa-a81fd6dd78ec");
+var caption = template.content.querySelector("caption");
+if(caption) {
+  caption.style.cssText = "display:block;text-align:center;";
+  var newcapt = document.createElement("p");
+  newcapt.appendChild(caption)
+  dest.parentNode.insertBefore(newcapt, dest.previousSibling);
+}
+var fantome = dest.attachShadow({mode: 'open'});
+var templateContent = template.content;
+fantome.appendChild(templateContent);
+</script>
+
+<pre class="r"><code>t4 </code></pre>
+<template id="94601337-23b1-484a-a8a9-611c1de8f6d7"><style>
+.tabwid table{
+  border-collapse:collapse;
+  line-height:1;
+  margin-left:auto;
+  margin-right:auto;
+  border-width: 0;
+  display: table;
+  margin-top: 1.275em;
+  margin-bottom: 1.275em;
+  border-spacing: 0;
+  border-color: transparent;
+}
+.tabwid_left table{
+  margin-left:0;
+}
+.tabwid_right table{
+  margin-right:0;
+}
+.tabwid td {
+    padding: 0;
+}
+.tabwid a {
+  text-decoration: none;
+}
+.tabwid thead {
+    background-color: transparent;
+}
+.tabwid tfoot {
+    background-color: transparent;
+}
+.tabwid table tr {
+background-color: transparent;
+}
+</style><div class="tabwid"><style>.cl-5b48f0ae{border-collapse:collapse;}.cl-5b3f315e{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-5b3f315f{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-5b3f3160{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-5b3f3161{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5b3f3162{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5b3f3163{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5b3f3164{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5b3f3165{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5b3f3166{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-5b48f0ae'><thead><tr style="overflow-wrap:break-word;"><td class="cl-5b3f3166"><p class="cl-5b3f315f"><span class="cl-5b3f315e">Place_of_residence</span></p></td><td class="cl-5b3f3165"><p class="cl-5b3f3160"><span class="cl-5b3f315e">Percentage</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-5b3f3162"><p class="cl-5b3f315f"><span class="cl-5b3f315e">Urban</span></p></td><td class="cl-5b3f3161"><p class="cl-5b3f3160"><span class="cl-5b3f315e">47.2</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5b3f3164"><p class="cl-5b3f315f"><span class="cl-5b3f315e">Rural</span></p></td><td class="cl-5b3f3163"><p class="cl-5b3f3160"><span class="cl-5b3f315e">52.8</span></p></td></tr></tbody></table></div></template>
+<div class="flextable-shadow-host" id="cf3bad5c-08d1-4c3a-ac49-d615aab5d172"></div>
+<script>
+var dest = document.getElementById("cf3bad5c-08d1-4c3a-ac49-d615aab5d172");
+var template = document.getElementById("94601337-23b1-484a-a8a9-611c1de8f6d7");
+var caption = template.content.querySelector("caption");
+if(caption) {
+  caption.style.cssText = "display:block;text-align:center;";
+  var newcapt = document.createElement("p");
+  newcapt.appendChild(caption)
+  dest.parentNode.insertBefore(newcapt, dest.previousSibling);
+}
+var fantome = dest.attachShadow({mode: 'open'});
+var templateContent = template.content;
+fantome.appendChild(templateContent);
+</script>
+
+<pre class="r"><code>t5 </code></pre>
+<template id="df5367eb-d23d-43ef-96e8-bdd1cdd8d882"><style>
+.tabwid table{
+  border-collapse:collapse;
+  line-height:1;
+  margin-left:auto;
+  margin-right:auto;
+  border-width: 0;
+  display: table;
+  margin-top: 1.275em;
+  margin-bottom: 1.275em;
+  border-spacing: 0;
+  border-color: transparent;
+}
+.tabwid_left table{
+  margin-left:0;
+}
+.tabwid_right table{
+  margin-right:0;
+}
+.tabwid td {
+    padding: 0;
+}
+.tabwid a {
+  text-decoration: none;
+}
+.tabwid thead {
+    background-color: transparent;
+}
+.tabwid tfoot {
+    background-color: transparent;
+}
+.tabwid table tr {
+background-color: transparent;
+}
+</style><div class="tabwid"><style>.cl-5b596fce{border-collapse:collapse;}.cl-5b4f4dc8{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-5b4f74ce{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-5b4f74cf{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-5b4fc2a8{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5b4fc2a9{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5b4fc2aa{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5b4fc2ab{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5b4fc2ac{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5b4fc2ad{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-5b596fce'><thead><tr style="overflow-wrap:break-word;"><td class="cl-5b4fc2ac"><p class="cl-5b4f74ce"><span class="cl-5b4f4dc8">Gender_of_household_head</span></p></td><td class="cl-5b4fc2ad"><p class="cl-5b4f74cf"><span class="cl-5b4f4dc8">Percentage</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-5b4fc2a8"><p class="cl-5b4f74ce"><span class="cl-5b4f4dc8">Male</span></p></td><td class="cl-5b4fc2a9"><p class="cl-5b4f74cf"><span class="cl-5b4f4dc8">62.84</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5b4fc2aa"><p class="cl-5b4f74ce"><span class="cl-5b4f4dc8">Female</span></p></td><td class="cl-5b4fc2ab"><p class="cl-5b4f74cf"><span class="cl-5b4f4dc8">37.16</span></p></td></tr></tbody></table></div></template>
+<div class="flextable-shadow-host" id="90913b3a-d14a-4011-b7dd-d2ccd1497471"></div>
+<script>
+var dest = document.getElementById("90913b3a-d14a-4011-b7dd-d2ccd1497471");
+var template = document.getElementById("df5367eb-d23d-43ef-96e8-bdd1cdd8d882");
+var caption = template.content.querySelector("caption");
+if(caption) {
+  caption.style.cssText = "display:block;text-align:center;";
+  var newcapt = document.createElement("p");
+  newcapt.appendChild(caption)
+  dest.parentNode.insertBefore(newcapt, dest.previousSibling);
+}
+var fantome = dest.attachShadow({mode: 'open'});
+var templateContent = template.content;
+fantome.appendChild(templateContent);
+</script>
+
+<pre class="r"><code>t6 </code></pre>
+<template id="e098b946-6b01-4cf0-a18a-50e88674f145"><style>
+.tabwid table{
+  border-collapse:collapse;
+  line-height:1;
+  margin-left:auto;
+  margin-right:auto;
+  border-width: 0;
+  display: table;
+  margin-top: 1.275em;
+  margin-bottom: 1.275em;
+  border-spacing: 0;
+  border-color: transparent;
+}
+.tabwid_left table{
+  margin-left:0;
+}
+.tabwid_right table{
+  margin-right:0;
+}
+.tabwid td {
+    padding: 0;
+}
+.tabwid a {
+  text-decoration: none;
+}
+.tabwid thead {
+    background-color: transparent;
+}
+.tabwid tfoot {
+    background-color: transparent;
+}
+.tabwid table tr {
+background-color: transparent;
+}
+</style><div class="tabwid"><style>.cl-5b6aa7a8{border-collapse:collapse;}.cl-5b5f92dc{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-5b5fb9d8{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-5b5fb9d9{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-5b5fb9da{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5b5fb9db{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5b5fb9dc{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5b5fb9dd{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5b5fb9de{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5b5fb9df{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-5b6aa7a8'><thead><tr style="overflow-wrap:break-word;"><td class="cl-5b5fb9de"><p class="cl-5b5fb9d8"><span class="cl-5b5f92dc">Living_children</span></p></td><td class="cl-5b5fb9df"><p class="cl-5b5fb9d9"><span class="cl-5b5f92dc">Percentage</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-5b5fb9da"><p class="cl-5b5fb9d8"><span class="cl-5b5f92dc">1</span></p></td><td class="cl-5b5fb9db"><p class="cl-5b5fb9d9"><span class="cl-5b5f92dc">23.83</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5b5fb9da"><p class="cl-5b5fb9d8"><span class="cl-5b5f92dc">2</span></p></td><td class="cl-5b5fb9db"><p class="cl-5b5fb9d9"><span class="cl-5b5f92dc">21.96</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5b5fb9da"><p class="cl-5b5fb9d8"><span class="cl-5b5f92dc">3</span></p></td><td class="cl-5b5fb9db"><p class="cl-5b5fb9d9"><span class="cl-5b5f92dc">18.91</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5b5fb9da"><p class="cl-5b5fb9d8"><span class="cl-5b5f92dc">4</span></p></td><td class="cl-5b5fb9db"><p class="cl-5b5fb9d9"><span class="cl-5b5f92dc">15.23</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5b5fb9da"><p class="cl-5b5fb9d8"><span class="cl-5b5f92dc">5</span></p></td><td class="cl-5b5fb9db"><p class="cl-5b5fb9d9"><span class="cl-5b5f92dc">9.39</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5b5fb9dc"><p class="cl-5b5fb9d8"><span class="cl-5b5f92dc">6+</span></p></td><td class="cl-5b5fb9dd"><p class="cl-5b5fb9d9"><span class="cl-5b5f92dc">10.67</span></p></td></tr></tbody></table></div></template>
+<div class="flextable-shadow-host" id="5aba7acf-6442-4d0c-a137-6a17918fb5e3"></div>
+<script>
+var dest = document.getElementById("5aba7acf-6442-4d0c-a137-6a17918fb5e3");
+var template = document.getElementById("e098b946-6b01-4cf0-a18a-50e88674f145");
+var caption = template.content.querySelector("caption");
+if(caption) {
+  caption.style.cssText = "display:block;text-align:center;";
+  var newcapt = document.createElement("p");
+  newcapt.appendChild(caption)
+  dest.parentNode.insertBefore(newcapt, dest.previousSibling);
+}
+var fantome = dest.attachShadow({mode: 'open'});
+var templateContent = template.content;
+fantome.appendChild(templateContent);
+</script>
+
+<pre class="r"><code>t7 </code></pre>
+<template id="9698fc10-ec3f-423f-9793-4b822a67bf88"><style>
+.tabwid table{
+  border-collapse:collapse;
+  line-height:1;
+  margin-left:auto;
+  margin-right:auto;
+  border-width: 0;
+  display: table;
+  margin-top: 1.275em;
+  margin-bottom: 1.275em;
+  border-spacing: 0;
+  border-color: transparent;
+}
+.tabwid_left table{
+  margin-left:0;
+}
+.tabwid_right table{
+  margin-right:0;
+}
+.tabwid td {
+    padding: 0;
+}
+.tabwid a {
+  text-decoration: none;
+}
+.tabwid thead {
+    background-color: transparent;
+}
+.tabwid tfoot {
+    background-color: transparent;
+}
+.tabwid table tr {
+background-color: transparent;
+}
+</style><div class="tabwid"><style>.cl-5b7a811e{border-collapse:collapse;}.cl-5b700ae0{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-5b700ae1{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-5b700ae2{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-5b70a8d8{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5b70a8d9{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5b70a8da{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5b70a8db{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5b70a8dc{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5b70a8dd{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-5b7a811e'><thead><tr style="overflow-wrap:break-word;"><td class="cl-5b70a8dd"><p class="cl-5b700ae1"><span class="cl-5b700ae0">Wealth_quintile</span></p></td><td class="cl-5b70a8dc"><p class="cl-5b700ae2"><span class="cl-5b700ae0">Percentage</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-5b70a8d9"><p class="cl-5b700ae1"><span class="cl-5b700ae0">Poorer</span></p></td><td class="cl-5b70a8d8"><p class="cl-5b700ae2"><span class="cl-5b700ae0">19.62</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5b70a8d9"><p class="cl-5b700ae1"><span class="cl-5b700ae0">Middle</span></p></td><td class="cl-5b70a8d8"><p class="cl-5b700ae2"><span class="cl-5b700ae0">20.84</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5b70a8d9"><p class="cl-5b700ae1"><span class="cl-5b700ae0">Richer</span></p></td><td class="cl-5b70a8d8"><p class="cl-5b700ae2"><span class="cl-5b700ae0">20.50</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5b70a8d9"><p class="cl-5b700ae1"><span class="cl-5b700ae0">Poorest</span></p></td><td class="cl-5b70a8d8"><p class="cl-5b700ae2"><span class="cl-5b700ae0">18.13</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5b70a8db"><p class="cl-5b700ae1"><span class="cl-5b700ae0">Richest</span></p></td><td class="cl-5b70a8da"><p class="cl-5b700ae2"><span class="cl-5b700ae0">20.91</span></p></td></tr></tbody></table></div></template>
+<div class="flextable-shadow-host" id="2c79b5a2-2fa0-4596-8ee2-84d061225375"></div>
+<script>
+var dest = document.getElementById("2c79b5a2-2fa0-4596-8ee2-84d061225375");
+var template = document.getElementById("9698fc10-ec3f-423f-9793-4b822a67bf88");
+var caption = template.content.querySelector("caption");
+if(caption) {
+  caption.style.cssText = "display:block;text-align:center;";
+  var newcapt = document.createElement("p");
+  newcapt.appendChild(caption)
+  dest.parentNode.insertBefore(newcapt, dest.previousSibling);
+}
+var fantome = dest.attachShadow({mode: 'open'});
+var templateContent = template.content;
+fantome.appendChild(templateContent);
+</script>
+
+<p><br> Tabulate Living Children by know about mal vaccine and accept mal vaccine for child</p>
+<pre class="r"><code>ft3</code></pre>
+<template id="7aa3ce08-b8a1-43af-9f60-cb885b79a4b6"><style>
+.tabwid table{
+  border-collapse:collapse;
+  line-height:1;
+  margin-left:auto;
+  margin-right:auto;
+  border-width: 0;
+  display: table;
+  margin-top: 1.275em;
+  margin-bottom: 1.275em;
+  border-spacing: 0;
+  border-color: transparent;
+}
+.tabwid_left table{
+  margin-left:0;
+}
+.tabwid_right table{
+  margin-right:0;
+}
+.tabwid td {
+    padding: 0;
+}
+.tabwid a {
+  text-decoration: none;
+}
+.tabwid thead {
+    background-color: transparent;
+}
+.tabwid tfoot {
+    background-color: transparent;
+}
+.tabwid table tr {
+background-color: transparent;
+}
+</style><div class="tabwid"><style>.cl-5b9c6450{border-collapse:collapse;}.cl-5b8c6dd4{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-5b8c6dd5{font-family:'Arial';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-5b8c6dd6{font-family:'Arial';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 255, 1.00);background-color:transparent;}.cl-5b8caa06{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-5b8caa07{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-5b8d3304{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5b8d3305{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5b8d3306{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5b8d3307{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5b8d3308{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(102, 102, 102, 1.00);border-top: 0.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5b8d3309{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(102, 102, 102, 1.00);border-top: 0.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5b8d330a{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5b8d330b{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5b8d330c{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-5b9c6450'><caption class="Table Caption">Table 1.3- Percentage of Women aged 15-49 in each region grouped by their choices about the Malaria vaccine</caption><thead><tr style="overflow-wrap:break-word;"><td class="cl-5b8d330a"><p class="cl-5b8caa06"><span class="cl-5b8c6dd4"> </span></p></td><td  colspan="2"class="cl-5b8d330a"><p class="cl-5b8caa06"><span class="cl-5b8c6dd4"> Allow Child to take Malaria Vaccine</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5b8d330c"><p class="cl-5b8caa06"><span class="cl-5b8c6dd5">Region</span></p></td><td class="cl-5b8d330b"><p class="cl-5b8caa07"><span class="cl-5b8c6dd5">No</span></p></td><td class="cl-5b8d330b"><p class="cl-5b8caa07"><span class="cl-5b8c6dd5">Yes</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-5b8d3304"><p class="cl-5b8caa06"><span class="cl-5b8c6dd4">Western</span></p></td><td class="cl-5b8d3305"><p class="cl-5b8caa07"><span class="cl-5b8c6dd4">8.00</span></p></td><td class="cl-5b8d3305"><p class="cl-5b8caa07"><span class="cl-5b8c6dd6">92.00</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5b8d3309"><p class="cl-5b8caa06"><span class="cl-5b8c6dd4">Central</span></p></td><td class="cl-5b8d3308"><p class="cl-5b8caa07"><span class="cl-5b8c6dd4">8.05</span></p></td><td class="cl-5b8d3308"><p class="cl-5b8caa07"><span class="cl-5b8c6dd6">91.95</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5b8d3309"><p class="cl-5b8caa06"><span class="cl-5b8c6dd4">Greater Accra</span></p></td><td class="cl-5b8d3308"><p class="cl-5b8caa07"><span class="cl-5b8c6dd4">14.37</span></p></td><td class="cl-5b8d3308"><p class="cl-5b8caa07"><span class="cl-5b8c6dd6">85.63</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5b8d3309"><p class="cl-5b8caa06"><span class="cl-5b8c6dd4">Volta</span></p></td><td class="cl-5b8d3308"><p class="cl-5b8caa07"><span class="cl-5b8c6dd4">9.26</span></p></td><td class="cl-5b8d3308"><p class="cl-5b8caa07"><span class="cl-5b8c6dd6">90.74</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5b8d3309"><p class="cl-5b8caa06"><span class="cl-5b8c6dd4">Eastern</span></p></td><td class="cl-5b8d3308"><p class="cl-5b8caa07"><span class="cl-5b8c6dd4">6.30</span></p></td><td class="cl-5b8d3308"><p class="cl-5b8caa07"><span class="cl-5b8c6dd6">93.70</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5b8d3309"><p class="cl-5b8caa06"><span class="cl-5b8c6dd4">Ashanti</span></p></td><td class="cl-5b8d3308"><p class="cl-5b8caa07"><span class="cl-5b8c6dd4">3.17</span></p></td><td class="cl-5b8d3308"><p class="cl-5b8caa07"><span class="cl-5b8c6dd6">96.83</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5b8d3309"><p class="cl-5b8caa06"><span class="cl-5b8c6dd4">Brong Ahafo</span></p></td><td class="cl-5b8d3308"><p class="cl-5b8caa07"><span class="cl-5b8c6dd4">3.21</span></p></td><td class="cl-5b8d3308"><p class="cl-5b8caa07"><span class="cl-5b8c6dd6">96.79</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5b8d3309"><p class="cl-5b8caa06"><span class="cl-5b8c6dd4">Northern</span></p></td><td class="cl-5b8d3308"><p class="cl-5b8caa07"><span class="cl-5b8c6dd4">4.17</span></p></td><td class="cl-5b8d3308"><p class="cl-5b8caa07"><span class="cl-5b8c6dd6">95.83</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5b8d3309"><p class="cl-5b8caa06"><span class="cl-5b8c6dd4">Upper East</span></p></td><td class="cl-5b8d3308"><p class="cl-5b8caa07"><span class="cl-5b8c6dd4">6.60</span></p></td><td class="cl-5b8d3308"><p class="cl-5b8caa07"><span class="cl-5b8c6dd6">93.40</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-5b8d3306"><p class="cl-5b8caa06"><span class="cl-5b8c6dd4">Upper West</span></p></td><td class="cl-5b8d3307"><p class="cl-5b8caa07"><span class="cl-5b8c6dd4">8.27</span></p></td><td class="cl-5b8d3307"><p class="cl-5b8caa07"><span class="cl-5b8c6dd6">91.73</span></p></td></tr></tbody></table></div></template>
+<div class="flextable-shadow-host" id="f6fc312e-1bcc-4466-a0ff-817ce8123884"></div>
+<script>
+var dest = document.getElementById("f6fc312e-1bcc-4466-a0ff-817ce8123884");
+var template = document.getElementById("7aa3ce08-b8a1-43af-9f60-cb885b79a4b6");
+var caption = template.content.querySelector("caption");
+if(caption) {
+  caption.style.cssText = "display:block;text-align:center;";
+  var newcapt = document.createElement("p");
+  newcapt.appendChild(caption)
+  dest.parentNode.insertBefore(newcapt, dest.previousSibling);
+}
+var fantome = dest.attachShadow({mode: 'open'});
+var templateContent = template.content;
+fantome.appendChild(templateContent);
+</script>
+
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -773,30 +1651,37 @@ attached base packages:
 [8] base     
 
 other attached packages:
- [1] magrittr_2.0.1  flextable_0.6.5 srvyr_1.0.1     survey_4.0     
- [5] survival_3.2-10 Matrix_1.3-2    haven_2.4.1     forcats_0.5.1  
- [9] stringr_1.4.0   dplyr_1.0.5     purrr_0.3.4     readr_1.4.0    
-[13] tidyr_1.1.3     tibble_3.1.1    ggplot2_3.3.3   tidyverse_1.3.1
-[17] workflowr_1.6.2
+ [1] gtsummary_1.4.0 table1_1.4      magrittr_2.0.1  flextable_0.6.5
+ [5] srvyr_1.0.1     survey_4.0      survival_3.2-10 Matrix_1.3-2   
+ [9] haven_2.4.1     forcats_0.5.1   stringr_1.4.0   dplyr_1.0.5    
+[13] purrr_0.3.4     readr_1.4.0     tidyr_1.1.3     tibble_3.1.1   
+[17] ggplot2_3.3.3   tidyverse_1.3.1
 
 loaded via a namespace (and not attached):
- [1] httr_1.4.2        sass_0.3.1        jsonlite_1.7.2    splines_4.0.5    
- [5] modelr_0.1.8      bslib_0.2.4       assertthat_0.2.1  cellranger_1.1.0 
- [9] yaml_2.2.1        gdtools_0.2.3     pillar_1.6.0      backports_1.2.1  
-[13] lattice_0.20-41   glue_1.4.2        uuid_0.1-4        digest_0.6.27    
-[17] promises_1.2.0.1  rvest_1.0.0       colorspace_2.0-1  htmltools_0.5.1.1
-[21] httpuv_1.6.0      pkgconfig_2.0.3   broom_0.7.6       scales_1.1.1     
-[25] whisker_0.4       later_1.2.0       officer_0.3.18    git2r_0.28.0     
-[29] generics_0.1.0    ellipsis_0.3.2    withr_2.4.2       cli_2.5.0        
-[33] crayon_1.4.1      readxl_1.3.1      evaluate_0.14     ps_1.6.0         
-[37] fs_1.5.0          fansi_0.4.2       xml2_1.3.2        tools_4.0.5      
-[41] data.table_1.14.0 hms_1.0.0         mitools_2.4       lifecycle_1.0.0  
-[45] munsell_0.5.0     reprex_2.0.0      zip_2.1.1         compiler_4.0.5   
-[49] jquerylib_0.1.4   systemfonts_1.0.1 rlang_0.4.11      rstudioapi_0.13  
-[53] base64enc_0.1-3   rmarkdown_2.7     gtable_0.3.0      DBI_1.1.1        
-[57] R6_2.5.0          lubridate_1.7.10  knitr_1.33        utf8_1.2.1       
-[61] rprojroot_2.0.2   stringi_1.5.3     Rcpp_1.0.6        vctrs_0.3.8      
-[65] dbplyr_2.1.1      tidyselect_1.1.1  xfun_0.22        </code></pre>
+ [1] fs_1.5.0            lubridate_1.7.10    httr_1.4.2         
+ [4] rprojroot_2.0.2     tools_4.0.5         backports_1.2.1    
+ [7] bslib_0.2.4         utf8_1.2.1          R6_2.5.0           
+[10] DBI_1.1.1           colorspace_2.0-1    withr_2.4.2        
+[13] tidyselect_1.1.1    compiler_4.0.5      git2r_0.28.0       
+[16] cli_2.5.0           rvest_1.0.0         gt_0.2.2           
+[19] xml2_1.3.2          officer_0.3.18      sass_0.3.1         
+[22] scales_1.1.1        checkmate_2.0.0     commonmark_1.7     
+[25] systemfonts_1.0.1   digest_0.6.27       rmarkdown_2.7      
+[28] base64enc_0.1-3     pkgconfig_2.0.3     htmltools_0.5.1.1  
+[31] dbplyr_2.1.1        rlang_0.4.11        readxl_1.3.1       
+[34] rstudioapi_0.13     jquerylib_0.1.4     generics_0.1.0     
+[37] jsonlite_1.7.2      zip_2.1.1           Formula_1.2-4      
+[40] Rcpp_1.0.6          munsell_0.5.0       fansi_0.4.2        
+[43] gdtools_0.2.3       lifecycle_1.0.0     stringi_1.5.3      
+[46] whisker_0.4         yaml_2.2.1          promises_1.2.0.1   
+[49] crayon_1.4.1        lattice_0.20-41     splines_4.0.5      
+[52] hms_1.0.0           knitr_1.33          pillar_1.6.0       
+[55] uuid_0.1-4          reprex_2.0.0        glue_1.4.2         
+[58] evaluate_0.14       mitools_2.4         data.table_1.14.0  
+[61] broom.helpers_1.3.0 modelr_0.1.8        vctrs_0.3.8        
+[64] httpuv_1.6.0        cellranger_1.1.0    gtable_0.3.0       
+[67] assertthat_0.2.1    xfun_0.22           broom_0.7.6        
+[70] later_1.2.0         workflowr_1.6.2     ellipsis_0.3.2     </code></pre>
 </div>
 </div>
 </div>

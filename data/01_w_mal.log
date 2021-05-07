@@ -850,3 +850,809 @@ c.Allow_mal_vaccine@v024 |
              upper west  |   .9086983    .015986      .8771542    .9402424
 --------------------------------------------------------------------------
 
+. br b1
+b1 ambiguous abbreviation
+r(111);
+
+. br b19
+b19 ambiguous abbreviation
+r(111);
+
+. br b19_01
+
+. br
+
+. svy:tab v020
+(running tabulate on estimation sample)
+
+Number of strata   =        20                  Number of obs     =      5,181
+Number of PSUs     =       200                  Population size   = 51,809.999
+                                                Design df         =        180
+
+----------------------
+ever-marr |
+ied       |
+sample    | proportion
+----------+-----------
+ all woma |          1
+----------------------
+  Key:  proportion  =  cell proportion
+
+  Only one row category.
+  Statistics cannot be computed.
+
+. svy:tab v020
+(running tabulate on estimation sample)
+
+Number of strata   =        20                  Number of obs     =      5,181
+Number of PSUs     =       200                  Population size   = 51,809.999
+                                                Design df         =        180
+
+----------------------
+ever-marr |
+ied       |
+sample    | proportion
+----------+-----------
+ all woma |          1
+----------------------
+  Key:  proportion  =  cell proportion
+
+  Only one row category.
+  Statistics cannot be computed.
+
+. svy:tab v014 v012
+(running tabulate on estimation sample)
+
+Number of strata   =        20                  Number of obs     =      5,181
+Number of PSUs     =       200                  Population size   = 51,809.999
+                                                Design df         =        180
+
+-------------------------------------------------------------------------------------------
+completen |
+ess of    |
+age       |
+informati |                            respondent's current age                            
+on        |      15      16      17      18      19      20      21      22      23      24
+----------+--------------------------------------------------------------------------------
+ month an |   .0363    .041   .0309   .0326    .034   .0355   .0327   .0317   .0321   .0302
+ month an |       0       0       0       0       0       0       0 1.5e-04       0       0
+ year and | 5.3e-04 2.2e-04 8.5e-05 2.5e-04 5.9e-04   .0014 6.1e-04 5.3e-04 7.1e-04    .001
+ age - ye | 2.3e-04 4.8e-04       0       0       0       0       0 1.6e-04 1.8e-04       0
+          | 
+    Total |   .0371   .0417    .031   .0328   .0346   .0369   .0333   .0325    .033   .0312
+-------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------
+completen |
+ess of    |
+age       |
+informati |                            respondent's current age                            
+on        |      25      26      27      28      29      30      31      32      33      34
+----------+--------------------------------------------------------------------------------
+ month an |   .0419   .0307   .0378    .034   .0309   .0422   .0243   .0249   .0273   .0241
+ month an |       0       0       0       0       0       0       0       0       0       0
+ year and |   .0011 3.0e-05   .0012 6.2e-04 5.0e-04 9.5e-04 6.0e-05 7.5e-04 5.6e-04 5.2e-04
+ age - ye |       0       0       0       0 1.5e-04       0       0 1.5e-04       0       0
+          | 
+    Total |    .043   .0307    .039   .0346   .0315   .0432   .0244   .0258   .0279   .0246
+-------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------
+completen |
+ess of    |
+age       |
+informati |                            respondent's current age                            
+on        |      35      36      37      38      39      40      41      42      43      44
+----------+--------------------------------------------------------------------------------
+ month an |   .0313   .0308   .0245   .0267   .0165   .0296   .0144   .0224    .019   .0136
+ month an | 1.2e-04       0       0       0       0       0       0       0       0       0
+ year and |   .0013 8.0e-04 9.3e-04 7.0e-04 9.2e-04   .0034 8.2e-04   .0015    .001 7.7e-04
+ age - ye | 3.1e-04       0 1.9e-04 4.4e-04       0 3.1e-04       0       0       0       0
+          | 
+    Total |    .033   .0316   .0256   .0278   .0174   .0333   .0152   .0239   .0201   .0144
+-------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------
+completen |
+ess of    |
+age       |
+informati |            respondent's current age            
+on        |      45      46      47      48      49   Total
+----------+------------------------------------------------
+ month an |   .0208   .0148    .015   .0169   .0154   .9671
+ month an |       0       0       0       0       0 2.8e-04
+ year and |   .0028 9.0e-04 3.2e-04 9.1e-04 5.1e-04   .0298
+ age - ye |       0       0       0 2.3e-04       0   .0028
+          | 
+    Total |   .0236   .0157   .0154   .0181   .0159       1
+-----------------------------------------------------------
+  Key:  cell proportion
+
+  Pearson:
+    Uncorrected   chi2(102)       =  164.5244
+    Design-based  F(31.14, 5604.55)=    1.6891    P = 0.0097
+
+. inspect v014 v012
+
+v014:  completeness of age information          Number of Observations
+-------------------------------------- ---------------------------------------
+                                             Total      Integers   Nonintegers
+|  #                         Negative            -             -             -
+|  #                         Zero                -             -             -
+|  #                         Positive        5,181         5,181             -
+|  #                                   -----------   -----------   -----------
+|  #                         Total           5,181         5,181             -
+|  #   .   .   .             Missing             -
++----------------------                -----------
+1                     6                      5,181
+   (4 unique values)
+
+      v014 is labeled and all values are documented in the label.
+
+v012:  respondent's current age                 Number of Observations
+-------------------------------        ---------------------------------------
+                                             Total      Integers   Nonintegers
+|  #                         Negative            -             -             -
+|  #   #                     Zero                -             -             -
+|  #   #   #   #             Positive        5,181         5,181             -
+|  #   #   #   #                       -----------   -----------   -----------
+|  #   #   #   #   #         Total           5,181         5,181             -
+|  #   #   #   #   #         Missing             -
++----------------------                -----------
+15                   49                      5,181
+  (35 unique values)
+
+. codebook v014 v012
+
+-----------------------------------------------------------------------------------------------
+v014                                                            completeness of age information
+-----------------------------------------------------------------------------------------------
+
+                  type:  numeric (byte)
+                 label:  V014
+
+                 range:  [1,6]                        units:  1
+         unique values:  4                        missing .:  0/5,181
+
+            tabulation:  Freq.   Numeric  Label
+                         4,965         1  month and year - information
+                                          complete
+                             2         2  month and age - year imputed
+                           202         3  year and age - month imputed
+                            12         6  age - year/month imputed
+
+-----------------------------------------------------------------------------------------------
+v012                                                                   respondent's current age
+-----------------------------------------------------------------------------------------------
+
+                  type:  numeric (byte)
+
+                 range:  [15,49]                      units:  1
+         unique values:  35                       missing .:  0/5,181
+
+                  mean:   29.6995
+              std. dev:    9.6468
+
+           percentiles:        10%       25%       50%       75%       90%
+                                17        21        29        37        44
+
+. br v014
+
+. tab v014
+
+      completeness of age information |      Freq.     Percent        Cum.
+--------------------------------------+-----------------------------------
+month and year - information complete |      4,965       95.83       95.83
+         month and age - year imputed |          2        0.04       95.87
+         year and age - month imputed |        202        3.90       99.77
+             age - year/month imputed |         12        0.23      100.00
+--------------------------------------+-----------------------------------
+                                Total |      5,181      100.00
+
+. tab v014, nolab
+
+completenes |
+   s of age |
+information |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          1 |      4,965       95.83       95.83
+          2 |          2        0.04       95.87
+          3 |        202        3.90       99.77
+          6 |         12        0.23      100.00
+------------+-----------------------------------
+      Total |      5,181      100.00
+
+. label variable v012 "Respondent's current age"
+
+. save "C:\Users\hp\Documents\thesis\Ghana_2019_MIS_analysis_project\data\women_malaria.dta", r
+> eplace
+file C:\Users\hp\Documents\thesis\Ghana_2019_MIS_analysis_project\data\women_malaria.dta saved
+
+. tab v025
+
+    type of |
+   place of |
+  residence |      Freq.     Percent        Cum.
+------------+-----------------------------------
+      urban |      2,440       47.10       47.10
+      rural |      2,741       52.90      100.00
+------------+-----------------------------------
+      Total |      5,181      100.00
+
+. tab v034
+no observations
+
+. tab v020
+
+ever-married sample |      Freq.     Percent        Cum.
+--------------------+-----------------------------------
+   all woman sample |      5,181      100.00      100.00
+--------------------+-----------------------------------
+              Total |      5,181      100.00
+
+. codebook v219 v220
+
+-----------------------------------------------------------------------------------------------
+v219                                                        living children + current pregnancy
+-----------------------------------------------------------------------------------------------
+
+                  type:  numeric (byte)
+
+                 range:  [0,13]                       units:  1
+         unique values:  14                       missing .:  0/5,181
+
+                  mean:   2.32677
+              std. dev:   2.20423
+
+           percentiles:        10%       25%       50%       75%       90%
+                                 0         0         2         4         5
+
+-----------------------------------------------------------------------------------------------
+v220                                              living children + current pregnancy (grouped)
+-----------------------------------------------------------------------------------------------
+
+                  type:  numeric (byte)
+                 label:  V220, but 6 nonmissing values are not labeled
+
+                 range:  [0,6]                        units:  1
+         unique values:  7                        missing .:  0/5,181
+
+            tabulation:  Freq.   Numeric  Label
+                         1,436         0  
+                           834         1  
+                           790         2  
+                           671         3  
+                           569         4  
+                           394         5  
+                           487         6  6+
+
+. label variable v106 "Highest educational level"
+
+. label variable v130 "Religion"
+
+. label variable v131 "Ethnicity"
+
+. label variable v136 "Number of househo
+> ld members"
+
+. label variable v137 "Number of childre
+> n 5 and under in household"
+
+. label variable s511 "Heard about malar
+> ia vaccine"
+
+. label variable v013 "Age in 5-year gro
+> ups"
+
+. label variable v220 "Living children"
+
+. label variable v190 "Wealth quintile"
+
+. save "C:\Users\hp\Documents\thesis\Gha
+> na_2019_MIS_analysis_project\data\wome
+> n_malaria.dta", replace
+file C:\Users\hp\Documents\thesis\Ghana_
+> 2019_MIS_analysis_project\data\women_m
+> alaria.dta saved
+
+. tab v220
+
+     Living |
+   children |      Freq.     Percent    
+>     Cum.
+------------+---------------------------
+> --------
+          0 |      1,436       27.72    
+>    27.72
+          1 |        834       16.10    
+>    43.81
+          2 |        790       15.25    
+>    59.06
+          3 |        671       12.95    
+>    72.01
+          4 |        569       10.98    
+>    83.00
+          5 |        394        7.60    
+>    90.60
+         6+ |        487        9.40    
+>   100.00
+------------+---------------------------
+> --------
+      Total |      5,181      100.00
+
+. label variable v220 "Living_children"
+
+. save "C:\Users\hp\Documents\thesis\Ghana_2019_MIS_analysis_project\data\women_malaria.dta", r
+> eplace
+file C:\Users\hp\Documents\thesis\Ghana_2019_MIS_analysis_project\data\women_malaria.dta saved
+
+. tab v130
+
+                Religion |      Freq.     Percent        Cum.
+-------------------------+-----------------------------------
+                catholic |        599       11.56       11.56
+                anglican |         40        0.77       12.33
+               methodist |        276        5.33       17.66
+            presbyterian |        297        5.73       23.39
+ pentecostal/charismatic |      1,981       38.24       61.63
+         other christian |        692       13.36       74.99
+                   islam |      1,095       21.13       96.12
+traditional/spiritualist |         76        1.47       97.59
+             no religion |        122        2.35       99.94
+                   other |          3        0.06      100.00
+-------------------------+-----------------------------------
+                   Total |      5,181      100.00
+
+. tab v106
+
+     Highest |
+ educational |
+       level |      Freq.     Percent        Cum.
+-------------+-----------------------------------
+no education |      1,133       21.87       21.87
+     primary |        960       18.53       40.40
+   secondary |      2,732       52.73       93.13
+      higher |        356        6.87      100.00
+-------------+-----------------------------------
+       Total |      5,181      100.00
+
+. svy:tab v130
+(running tabulate on estimation sample)
+
+Number of strata   =        20                  Number of obs     =      5,181
+Number of PSUs     =       200                  Population size   = 51,809.999
+                                                Design df         =        180
+
+----------------------
+ Religion | proportion
+----------+-----------
+ catholic |      .0796
+ anglican |      .0064
+ methodis |      .0558
+ presbyte |      .0625
+ pentecos |      .4418
+ other ch |      .1408
+    islam |      .1821
+ traditio |      .0107
+ no relig |      .0196
+    other |    7.2e-04
+          | 
+    Total |          1
+----------------------
+  Key:  proportion  =  cell proportion
+
+. svy:tab v130
+(running tabulate on estimation sample)
+
+Number of strata   =        20                  Number of obs     =      5,181
+Number of PSUs     =       200                  Population size   = 51,809.999
+                                                Design df         =        180
+
+----------------------
+ Religion | proportion
+----------+-----------
+ catholic |      .0796
+ anglican |      .0064
+ methodis |      .0558
+ presbyte |      .0625
+ pentecos |      .4418
+ other ch |      .1408
+    islam |      .1821
+ traditio |      .0107
+ no relig |      .0196
+    other |    7.2e-04
+          | 
+    Total |          1
+----------------------
+  Key:  proportion  =  cell proportion
+
+. svy:tab v131
+(running tabulate on estimation sample)
+
+Number of strata   =        20                  Number of obs     =      5,181
+Number of PSUs     =       200                  Population size   = 51,809.999
+                                                Design df         =        180
+
+----------------------
+Ethnicity | proportion
+----------+-----------
+     akan |      .4404
+ ga/dangm |      .0727
+      ewe |      .1695
+     guan |      .0215
+ mole-dag |      .1772
+    grusi |      .0313
+    gurma |      .0527
+    mande |       .009
+    other |      .0256
+          | 
+    Total |          1
+----------------------
+  Key:  proportion  =  cell proportion
+
+. svy:tab v131, no lab
+(running tabulate on estimation sample)
+option no not allowed
+r(198);
+
+. svy:tab v131 no lab
+variable no not found
+r(111);
+
+. tab v131
+
+   Ethnicity |      Freq.     Percent        Cum.
+-------------+-----------------------------------
+        akan |      1,958       37.79       37.79
+   ga/dangme |        275        5.31       43.10
+         ewe |        744       14.36       57.46
+        guan |        119        2.30       59.76
+mole-dagbani |      1,460       28.18       87.94
+       grusi |        217        4.19       92.13
+       gurma |        223        4.30       96.43
+       mande |         49        0.95       97.38
+       other |        136        2.62      100.00
+-------------+-----------------------------------
+       Total |      5,181      100.00
+
+. tab v131, nolab
+
+  Ethnicity |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          1 |      1,958       37.79       37.79
+          2 |        275        5.31       43.10
+          3 |        744       14.36       57.46
+          4 |        119        2.30       59.76
+          5 |      1,460       28.18       87.94
+          6 |        217        4.19       92.13
+          7 |        223        4.30       96.43
+          8 |         49        0.95       97.38
+         96 |        136        2.62      100.00
+------------+-----------------------------------
+      Total |      5,181      100.00
+
+. recode v131 (1 =1 "Akan") (3=2 "Ewe")  (2=3 "Ga/Dangme")(5= 4 "Mole-Dagbani") (4 6 7 8 96 = 4
+>  "Other Ethnicities, gen (Ethnicity)
+invalid varlist (rule)..: quotes do not match
+
+r(198);
+
+. recode v131 (1 =1 "Akan") (3=2 "Ewe")  (2=3 "Ga-Adangme")(5= 4 "Mole-Dagbani") (4 6 7 8 96 = 
+> 4 "Other Ethnicities", gen (Ethnicity)
+invalid varlist (rule)..: unmatched open parenthesis or bracket
+
+r(198);
+
+. recode v131 (1 =1 "Akan") (3=2 "Ewe")  (2=3 "Ga-Adangme")(5= 4 "Mole-Dagbani") (4 6 7 8 96 = 
+> 4 "Other Ethnicities"), gen (Ethnicity)
+(3104 differences between v131 and Ethnicity)
+
+. tab Ethnicity
+
+   RECODE of v131 |
+      (Ethnicity) |      Freq.     Percent        Cum.
+------------------+-----------------------------------
+             Akan |      1,958       37.79       37.79
+              Ewe |        744       14.36       52.15
+       Ga-Adangme |        275        5.31       57.46
+Other Ethnicities |      2,204       42.54      100.00
+------------------+-----------------------------------
+            Total |      5,181      100.00
+
+. tab v131
+
+   Ethnicity |      Freq.     Percent        Cum.
+-------------+-----------------------------------
+        akan |      1,958       37.79       37.79
+   ga/dangme |        275        5.31       43.10
+         ewe |        744       14.36       57.46
+        guan |        119        2.30       59.76
+mole-dagbani |      1,460       28.18       87.94
+       grusi |        217        4.19       92.13
+       gurma |        223        4.30       96.43
+       mande |         49        0.95       97.38
+       other |        136        2.62      100.00
+-------------+-----------------------------------
+       Total |      5,181      100.00
+
+. drop Ethnicity
+
+. recode v131 (1 =1 "Akan") (3=2 "Ewe")  (2=3 "Ga-Adangme")(5= 3 "Mole-Dagbani") (4 6 7 8 96 = 
+> 4 "Other Ethnicities", gen (Ethnicity)
+invalid varlist (rule)..: unmatched open parenthesis or bracket
+
+r(198);
+
+. recode v131 (1 =1 "Akan") (3=2 "Ewe")  (2=3 "Ga-Adangme")(5= 3 "Mole-Dagbani") (4 6 7 8 96 = 
+> 4 "Other Ethnicities"), gen (Ethnicity)
+(3104 differences between v131 and Ethnicity)
+
+. tab Ethnicity
+
+   RECODE of v131 |
+      (Ethnicity) |      Freq.     Percent        Cum.
+------------------+-----------------------------------
+             Akan |      1,958       37.79       37.79
+              Ewe |        744       14.36       52.15
+     Mole-Dagbani |      1,735       33.49       85.64
+Other Ethnicities |        744       14.36      100.00
+------------------+-----------------------------------
+            Total |      5,181      100.00
+
+. drop Ethnicity
+
+. recode v131 (1 =1 "Akan") (3=2 "Ewe")  (2=3 "Ga-Adangme")(5= 4 "Mole-Dagbani") (4 6 7 8 96 = 
+> 5 "Other Ethnicities"), gen (Ethnicity)
+(3223 differences between v131 and Ethnicity)
+
+. tab Ethnicity
+
+   RECODE of v131 |
+      (Ethnicity) |      Freq.     Percent        Cum.
+------------------+-----------------------------------
+             Akan |      1,958       37.79       37.79
+              Ewe |        744       14.36       52.15
+       Ga-Adangme |        275        5.31       57.46
+     Mole-Dagbani |      1,460       28.18       85.64
+Other Ethnicities |        744       14.36      100.00
+------------------+-----------------------------------
+            Total |      5,181      100.00
+
+. tab v131
+
+   Ethnicity |      Freq.     Percent        Cum.
+-------------+-----------------------------------
+        akan |      1,958       37.79       37.79
+   ga/dangme |        275        5.31       43.10
+         ewe |        744       14.36       57.46
+        guan |        119        2.30       59.76
+mole-dagbani |      1,460       28.18       87.94
+       grusi |        217        4.19       92.13
+       gurma |        223        4.30       96.43
+       mande |         49        0.95       97.38
+       other |        136        2.62      100.00
+-------------+-----------------------------------
+       Total |      5,181      100.00
+
+. save "C:\Users\hp\Documents\thesis\Ghana_2019_MIS_analysis_project\data\women_malaria.dta", r
+> eplace
+file C:\Users\hp\Documents\thesis\Ghana_2019_MIS_analysis_project\data\women_malaria.dta saved
+
+. display 37.8+14.4+ 5.3+28.2+14.4
+100.1
+
+. display 37.8+14.4+ 5.3+28.1+14.4
+100
+
+. svy:tab Ethnicity
+(running tabulate on estimation sample)
+
+Number of strata   =        20                  Number of obs     =      5,181
+Number of PSUs     =       200                  Population size   = 51,809.999
+                                                Design df         =        180
+
+----------------------
+RECODE of |
+v131      |
+(Ethnicit |
+y)        | proportion
+----------+-----------
+     Akan |      .4404
+      Ewe |      .1695
+ Ga-Adang |      .0727
+ Mole-Dag |      .1772
+ Other Et |      .1402
+          | 
+    Total |          1
+----------------------
+  Key:  proportion  =  cell proportion
+
+. tab Ethnicity, percent
+option percent not allowed
+r(198);
+
+. tab Ethnicity percent
+variable percent not found
+r(111);
+
+. svy:tab Ethnicity, percent
+(running tabulate on estimation sample)
+
+Number of strata   =        20                  Number of obs     =      5,181
+Number of PSUs     =       200                  Population size   = 51,809.999
+                                                Design df         =        180
+
+----------------------
+RECODE of |
+v131      |
+(Ethnicit |
+y)        | percentage
+----------+-----------
+     Akan |      44.04
+      Ewe |      16.95
+ Ga-Adang |       7.27
+ Mole-Dag |      17.72
+ Other Et |      14.02
+          | 
+    Total |        100
+----------------------
+  Key:  percentage  =  cell percentage
+
+. svy:tab v131
+(running tabulate on estimation sample)
+
+Number of strata   =        20                  Number of obs     =      5,181
+Number of PSUs     =       200                  Population size   = 51,809.999
+                                                Design df         =        180
+
+----------------------
+Ethnicity | proportion
+----------+-----------
+     akan |      .4404
+ ga/dangm |      .0727
+      ewe |      .1695
+     guan |      .0215
+ mole-dag |      .1772
+    grusi |      .0313
+    gurma |      .0527
+    mande |       .009
+    other |      .0256
+          | 
+    Total |          1
+----------------------
+  Key:  proportion  =  cell proportion
+
+. svy:tab Ethnicity, percent
+(running tabulate on estimation sample)
+
+Number of strata   =        20                  Number of obs     =      5,181
+Number of PSUs     =       200                  Population size   = 51,809.999
+                                                Design df         =        180
+
+----------------------
+RECODE of |
+v131      |
+(Ethnicit |
+y)        | percentage
+----------+-----------
+     Akan |      44.04
+      Ewe |      16.95
+ Ga-Adang |       7.27
+ Mole-Dag |      17.72
+ Other Et |      14.02
+          | 
+    Total |        100
+----------------------
+  Key:  percentage  =  cell percentage
+
+. svy:tab v131
+(running tabulate on estimation sample)
+
+Number of strata   =        20                  Number of obs     =      5,181
+Number of PSUs     =       200                  Population size   = 51,809.999
+                                                Design df         =        180
+
+----------------------
+Ethnicity | proportion
+----------+-----------
+     akan |      .4404
+ ga/dangm |      .0727
+      ewe |      .1695
+     guan |      .0215
+ mole-dag |      .1772
+    grusi |      .0313
+    gurma |      .0527
+    mande |       .009
+    other |      .0256
+          | 
+    Total |          1
+----------------------
+  Key:  proportion  =  cell proportion
+
+. svy:tab Ethnicity, percent
+(running tabulate on estimation sample)
+
+Number of strata   =        20                  Number of obs     =      5,181
+Number of PSUs     =       200                  Population size   = 51,809.999
+                                                Design df         =        180
+
+----------------------
+RECODE of |
+v131      |
+(Ethnicit |
+y)        | percentage
+----------+-----------
+     Akan |      44.04
+      Ewe |      16.95
+ Ga-Adang |       7.27
+ Mole-Dag |      17.72
+ Other Et |      14.02
+          | 
+    Total |        100
+----------------------
+  Key:  percentage  =  cell percentage
+
+. svy:tab v131,percent
+(running tabulate on estimation sample)
+
+Number of strata   =        20                  Number of obs     =      5,181
+Number of PSUs     =       200                  Population size   = 51,809.999
+                                                Design df         =        180
+
+----------------------
+Ethnicity | percentage
+----------+-----------
+     akan |      44.04
+ ga/dangm |       7.27
+      ewe |      16.95
+     guan |       2.15
+ mole-dag |      17.72
+    grusi |      3.134
+    gurma |      5.272
+    mande |      .9002
+    other |      2.565
+          | 
+    Total |        100
+----------------------
+  Key:  percentage  =  cell percentage
+
+. 44+17+7.3+17.7+14
+44 is not a valid command name
+r(199);
+
+. display 44+17+7.3+17.7+14
+100
+
+. svy:tab Ethnicity, percent
+(running tabulate on estimation sample)
+
+Number of strata   =        20                  Number of 
+> obs                                                     
+>         =      5,181
+Number of PSUs     =       200                  Population
+>  size                                                   
+>         = 51,809.999
+                                                Design df 
+>         =        180
+
+----------------------
+RECODE of |
+v131      |
+(Ethnicit |
+y)        | percentage
+----------+-----------
+     Akan |      44.04
+      Ewe |      16.95
+ Ga-Adang |       7.27
+ Mole-Dag |      17.72
+ Other Et |      14.02
+          | 
+    Total |        100
+----------------------
+  Key:  percentage  =  cell percentage
+
+. save "C:\Users\hp\Documents\thesis\Ghana_2019_MIS_analys
+> is_project\data\women_malaria.dta", replace
+file C:\Users\hp\Documents\thesis\Ghana_2019_MIS_analysis_
+> project\data\women_malaria.dta saved
+

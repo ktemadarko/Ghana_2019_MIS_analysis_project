@@ -1,0 +1,1323 @@
+---------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:\Users\hp\Documents\thesis\Ghana_2019_MIS_analysis_pro
+> ject\data\01_child_mal.log
+  log type:  text
+ opened on:   6 May 2021, 10:30:13
+
+. 
+end of do-file
+
+. do "C:\Users\hp\AppData\Local\Temp\STD6448_000000.tmp"
+
+. svyset v021, strata(v023) weight(wgt) singleunit(centered)
+no variables defined
+r(111);
+
+end of do-file
+
+r(111);
+
+. do "C:\Users\hp\AppData\Local\Temp\STD6448_000000.tmp"
+
+. svyset v021, strata(v023) weight(wgt)
+no variables defined
+r(111);
+
+end of do-file
+
+r(111);
+
+. do "C:\Users\hp\AppData\Local\Temp\STD6448_000000.tmp"
+
+. svyset v021, strata(v023) weight(wgt)
+no variables defined
+r(111);
+
+end of do-file
+
+r(111);
+
+. do "C:\Users\hp\AppData\Local\Temp\STD6448_000000.tmp"
+
+. use "C:\Users\hp\Documents\r_and_git\spatial_anaemia\stata\d6.dta" 
+>  
+
+. 
+end of do-file
+
+. do "C:\Users\hp\AppData\Local\Temp\STD6448_000000.tmp"
+
+. svyset v021, strata(v023) weight(wgt)
+
+      pweight: <none>
+          VCE: linearized
+  Single unit: missing
+     Strata 1: v023
+         SU 1: v021
+        FPC 1: <zero>
+     Weight 1: wgt
+
+. 
+end of do-file
+
+. svy:tab v024 anamiaStatus
+variable anamiaStatus not found
+r(111);
+
+. svy:tab v024 anaemiaStatus
+(running tabulate on estimation sample)
+
+Number of strata   =        20                  Number of obs     =  
+>     2,434
+Number of PSUs     =       200                  Population size   = 2
+> 3,071.551
+                                                Design df         =  
+>       180
+
+----------------------------------------
+          |RECODE of hw57 (anemia level)
+   region | No anaem   Anaemia     Total
+----------+-----------------------------
+  western |    .0511     .0557     .1068
+  central |    .0256     .0462     .0718
+  greater |    .0725     .0537     .1262
+    volta |    .0491      .063      .112
+  eastern |    .0548     .0438     .0986
+  ashanti |    .0918     .0745     .1663
+ brong ah |    .0373     .0536     .0909
+ northern |    .0482     .1029     .1511
+ upper ea |    .0117     .0315     .0432
+ upper we |    .0126     .0205     .0331
+          | 
+    Total |    .4546     .5454         1
+----------------------------------------
+  Key:  cell proportion
+
+  Pearson:
+    Uncorrected   chi2(9)         =   95.9972
+    Design-based  F(7.47, 1345.21)=    8.6407     P = 0.0000
+
+. svy:tab v024 anaemiaStatus, percent
+(running tabulate on estimation sample)
+
+Number of strata   =        20                  Number of obs     =  
+>     2,434
+Number of PSUs     =       200                  Population size   = 2
+> 3,071.551
+                                                Design df         =  
+>       180
+
+----------------------------------------
+          |RECODE of hw57 (anemia level)
+   region | No anaem   Anaemia     Total
+----------+-----------------------------
+  western |    5.108     5.573     10.68
+  central |    2.555     4.621     7.176
+  greater |    7.246     5.372     12.62
+    volta |    4.907     6.298      11.2
+  eastern |    5.479     4.379     9.857
+  ashanti |    9.181     7.447     16.63
+ brong ah |    3.728     5.365     9.093
+ northern |    4.825     10.29     15.11
+ upper ea |    1.169     3.153     4.322
+ upper we |    1.261     2.045     3.306
+          | 
+    Total |    45.46     54.54       100
+----------------------------------------
+  Key:  cell percentage
+
+  Pearson:
+    Uncorrected   chi2(9)         =   95.9972
+    Design-based  F(7.47, 1345.21)=    8.6407     P = 0.0000
+
+. svy:mean anaemiaStatus, over(v024)
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata =      20                Number of obs   =      2,43
+> 4
+Number of PSUs   =     200                Population size = 23,071.55
+> 1
+                                          Design df       =        18
+> 0
+
+---------------------------------------------------------------------
+> -
+                     |             Linearized
+                     |       Mean   Std. Err.     [95% Conf. Interval
+> ]
+---------------------+-----------------------------------------------
+> -
+c.anaemiaStatus@v024 |
+            western  |   .5217487   .0282863      .4659333    .577564
+> 2
+            central  |   .6439073   .0520811      .5411394    .746675
+> 3
+      greater accra  |    .425731    .035754        .35518    .496281
+> 9
+              volta  |   .5620443   .0259012      .5109353    .613153
+> 4
+            eastern  |   .4441877   .0472837       .350886    .537489
+> 3
+            ashanti  |   .4478598   .0294496       .389749    .505970
+> 6
+        brong ahafo  |   .5900325   .0368275      .5173633    .662701
+> 6
+           northern  |   .6807533   .0279589       .625584    .735922
+> 6
+         upper east  |   .7295271     .03735      .6558269    .803227
+> 2
+         upper west  |   .6186647   .0292206      .5610056    .676323
+> 7
+---------------------------------------------------------------------
+> -
+
+. svy:mean anaemiaStatus, by(v024)
+(running mean on estimation sample)
+option by() not allowed
+r(198);
+
+. svy:tab anaemiaStatus, over(v024)
+option over() not allowed
+r(198);
+
+. svy:tab anaemiaStatus v024, percent
+(running tabulate on estimation sample)
+
+Number of strata   =        20                  Number of 
+> obs                                                     
+>         =      2,434
+Number of PSUs     =       200                  Population
+>  size                                                   
+>         = 23,071.551
+                                                Design df 
+>         =        180
+
+--------------------------------------------------------
+RECODE of |
+hw57      |
+(anemia   |                    region                   
+level)    |  western  central  greater    volta  eastern
+----------+---------------------------------------------
+ No anaem |    5.108    2.555    7.246    4.907    5.479
+  Anaemia |    5.573    4.621    5.372    6.298    4.379
+          | 
+    Total |    10.68    7.176    12.62     11.2    9.857
+--------------------------------------------------------
+
+--------------------------------------------------------
+RECODE of |
+hw57      |
+(anemia   |                    region                   
+level)    |  ashanti brong ah northern upper ea upper we
+----------+---------------------------------------------
+ No anaem |    9.181    3.728    4.825    1.169    1.261
+  Anaemia |    7.447    5.365    10.29    3.153    2.045
+          | 
+    Total |    16.63    9.093    15.11    4.322    3.306
+--------------------------------------------------------
+
+--------------------
+RECODE of |
+hw57      |
+(anemia   |  region 
+level)    |    Total
+----------+---------
+ No anaem |    45.46
+  Anaemia |    54.54
+          | 
+    Total |      100
+--------------------
+  Key:  cell percentage
+
+  Pearson:
+    Uncorrected   chi2(9)         =   95.9972
+    Design-based  F(7.47, 1345.21)=    8.6407     P = 0.00
+> 00
+
+. svy:tab v024 anaemiaStatus, percent
+(running tabulate on estimation sample)
+
+Number of strata   =        20                  Number of 
+> obs                                                     
+>         =      2,434
+Number of PSUs     =       200                  Population
+>  size                                                   
+>         = 23,071.551
+                                                Design df 
+>         =        180
+
+----------------------------------------
+          |RECODE of hw57 (anemia level)
+   region | No anaem   Anaemia     Total
+----------+-----------------------------
+  western |    5.108     5.573     10.68
+  central |    2.555     4.621     7.176
+  greater |    7.246     5.372     12.62
+    volta |    4.907     6.298      11.2
+  eastern |    5.479     4.379     9.857
+  ashanti |    9.181     7.447     16.63
+ brong ah |    3.728     5.365     9.093
+ northern |    4.825     10.29     15.11
+ upper ea |    1.169     3.153     4.322
+ upper we |    1.261     2.045     3.306
+          | 
+    Total |    45.46     54.54       100
+----------------------------------------
+  Key:  cell percentage
+
+  Pearson:
+    Uncorrected   chi2(9)         =   95.9972
+    Design-based  F(7.47, 1345.21)=    8.6407     P = 0.00
+> 00
+
+. svy:tab anaemiaStatus v024
+(running tabulate on estimation sample)
+
+Number of strata   =        20                  Number of 
+> obs                                                     
+>         =      2,434
+Number of PSUs     =       200                  Population
+>  size                                                   
+>         = 23,071.551
+                                                Design df 
+>         =        180
+
+--------------------------------------------------------
+RECODE of |
+hw57      |
+(anemia   |                    region                   
+level)    |  western  central  greater    volta  eastern
+----------+---------------------------------------------
+ No anaem |    .0511    .0256    .0725    .0491    .0548
+  Anaemia |    .0557    .0462    .0537     .063    .0438
+          | 
+    Total |    .1068    .0718    .1262     .112    .0986
+--------------------------------------------------------
+
+--------------------------------------------------------
+RECODE of |
+hw57      |
+(anemia   |                    region                   
+level)    |  ashanti brong ah northern upper ea upper we
+----------+---------------------------------------------
+ No anaem |    .0918    .0373    .0482    .0117    .0126
+  Anaemia |    .0745    .0536    .1029    .0315    .0205
+          | 
+    Total |    .1663    .0909    .1511    .0432    .0331
+--------------------------------------------------------
+
+--------------------
+RECODE of |
+hw57      |
+(anemia   |  region 
+level)    |    Total
+----------+---------
+ No anaem |    .4546
+  Anaemia |    .5454
+          | 
+    Total |        1
+--------------------
+  Key:  cell proportion
+
+  Pearson:
+    Uncorrected   chi2(9)         =   95.9972
+    Design-based  F(7.47, 1345.21)=    8.6407     P = 0.00
+> 00
+
+. svy:tab anaemiaStatus v024
+(running tabulate on estimation sample)
+
+Number of strata   =        20                  Number of 
+> obs                                                     
+>         =      2,434
+Number of PSUs     =       200                  Population
+>  size                                                   
+>         = 23,071.551
+                                                Design df 
+>         =        180
+
+--------------------------------------------------------
+RECODE of |
+hw57      |
+(anemia   |                    region                   
+level)    |  western  central  greater    volta  eastern
+----------+---------------------------------------------
+ No anaem |    .0511    .0256    .0725    .0491    .0548
+  Anaemia |    .0557    .0462    .0537     .063    .0438
+          | 
+    Total |    .1068    .0718    .1262     .112    .0986
+--------------------------------------------------------
+
+--------------------------------------------------------
+RECODE of |
+hw57      |
+(anemia   |                    region                   
+level)    |  ashanti brong ah northern upper ea upper we
+----------+---------------------------------------------
+ No anaem |    .0918    .0373    .0482    .0117    .0126
+  Anaemia |    .0745    .0536    .1029    .0315    .0205
+          | 
+    Total |    .1663    .0909    .1511    .0432    .0331
+--------------------------------------------------------
+
+--------------------
+RECODE of |
+hw57      |
+(anemia   |  region 
+level)    |    Total
+----------+---------
+ No anaem |    .4546
+  Anaemia |    .5454
+          | 
+    Total |        1
+--------------------
+  Key:  cell proportion
+
+  Pearson:
+    Uncorrected   chi2(9)         =   95.9972
+    Design-based  F(7.47, 1345.21)=    8.6407     P = 0.00
+> 00
+
+. svy:tab hw57 v024
+(running tabulate on estimation sample)
+
+Number of strata   =        20                  Number of 
+> obs                                                     
+>         =      2,434
+Number of PSUs     =       200                  Population
+>  size                                                   
+>         = 23,071.551
+                                                Design df 
+>         =        180
+
+--------------------------------------------------------
+anemia    |                    region                   
+level     |  western  central  greater    volta  eastern
+----------+---------------------------------------------
+   severe |    .0017    .0019        0  8.7e-04  3.8e-04
+ moderate |    .0282    .0197    .0196    .0286    .0201
+     mild |    .0259    .0245    .0341    .0335    .0233
+ not anem |    .0511    .0256    .0725    .0491    .0548
+          | 
+    Total |    .1068    .0718    .1262     .112    .0986
+--------------------------------------------------------
+
+--------------------------------------------------------
+anemia    |                    region                   
+level     |  ashanti brong ah northern upper ea upper we
+----------+---------------------------------------------
+   severe |     .002        0    .0066  4.7e-04  5.5e-04
+ moderate |    .0293    .0295    .0615    .0179    .0098
+     mild |    .0432    .0241    .0348    .0132    .0101
+ not anem |    .0918    .0373    .0482    .0117    .0126
+          | 
+    Total |    .1663    .0909    .1511    .0432    .0331
+--------------------------------------------------------
+
+--------------------
+anemia    |  region 
+level     |    Total
+----------+---------
+   severe |    .0144
+ moderate |    .2644
+     mild |    .2666
+ not anem |    .4546
+          | 
+    Total |        1
+--------------------
+  Key:  cell proportion
+
+  Pearson:
+    Uncorrected   chi2(27)        =  165.6519
+    Design-based  F(17.67, 3180.73)=    4.5521    P = 0.00
+> 00
+
+. svy:tab hw57, nolab'
+(running tabulate on estimation sample)
+option ' not allowed
+r(198);
+
+. svy:tab hw57, nolab
+(running tabulate on estimation sample)
+
+Number of strata   =        20                  Number of 
+> obs                                                     
+>         =      2,434
+Number of PSUs     =       200                  Population
+>  size                                                   
+>         = 23,071.551
+                                                Design df 
+>         =        180
+
+----------------------
+     hw57 | proportion
+----------+-----------
+        1 |      .0144
+        2 |      .2644
+        3 |      .2666
+        4 |      .4546
+          | 
+    Total |          1
+----------------------
+  Key:  proportion  =  cell proportion
+
+. do "C:\Users\hp\AppData\Local\Temp\STD6448_000000.tmp"
+
+. recode hw57(3 4=0 "No anaemia/ Mild")(1 2  =1 "Moderate/
+>  Severe Anaemia"),gen(anaStatus)
+(2392 differences between hw57 and anaStatus)
+
+. 
+end of do-file
+
+. svy:tab anaStatus
+(running tabulate on estimation sample)
+
+Number of strata   =        20                  Number of 
+> obs                                                     
+>         =      2,434
+Number of PSUs     =       200                  Population
+>  size                                                   
+>         = 23,071.551
+                                                Design df 
+>         =        180
+
+----------------------
+RECODE of |
+hw57      |
+(anemia   |
+level)    | proportion
+----------+-----------
+ No anaem |      .7212
+ Moderate |      .2788
+          | 
+    Total |          1
+----------------------
+  Key:  proportion  =  cell proportion
+
+. svy:tab anaStatus,mean
+(running tabulate on estimation sample)
+option mean not allowed
+r(198);
+
+. svy:tab anaStatus,percent
+(running tabulate on estimation sample)
+
+Number of strata   =        20                  Number of 
+> obs                                                     
+>         =      2,434
+Number of PSUs     =       200                  Population
+>  size                                                   
+>         = 23,071.551
+                                                Design df 
+>         =        180
+
+----------------------
+RECODE of |
+hw57      |
+(anemia   |
+level)    | percentage
+----------+-----------
+ No anaem |      72.12
+ Moderate |      27.88
+          | 
+    Total |        100
+----------------------
+  Key:  percentage  =  cell percentage
+
+. svy:mean anaStatus,percent
+(running mean on estimation sample)
+option percent not allowed
+r(198);
+
+. svy:mean anaStatus
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata =      20        Number of obs   =      2
+> ,434
+Number of PSUs   =     200        Population size = 23,071
+> .551
+                                  Design df       =       
+>  180
+
+----------------------------------------------------------
+> ----
+             |             Linearized
+             |       Mean   Std. Err.     [95% Conf. Inter
+> val]
+-------------+--------------------------------------------
+> ----
+   anaStatus |    .278799    .012207      .2547118    .302
+> 8862
+----------------------------------------------------------
+> ----
+
+. svy:mean anaStatus, over(v024)
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata =      20            Number of obs   =   
+>    2,434
+Number of PSUs   =     200            Population size = 23
+> ,071.551
+                                      Design df       =   
+>      180
+
+----------------------------------------------------------
+> --------
+                 |             Linearized
+                 |       Mean   Std. Err.     [95% Conf. I
+> nterval]
+-----------------+----------------------------------------
+> --------
+c.anaStatus@v024 |
+        western  |   .2795928   .0243891      .2314674    
+> .3277181
+        central  |   .3020803   .0410664      .2210467    
+> .3831139
+  greater accra  |   .1555425   .0241426      .1079036    
+> .2031814
+          volta  |   .2632729   .0346903      .1948209    
+>  .331725
+        eastern  |   .2075482   .0336498      .1411493    
+> .2739471
+        ashanti  |   .1880229   .0286937      .1314036    
+> .2446422
+    brong ahafo  |   .3248425   .0421273      .2417157    
+> .4079694
+       northern  |   .4507919   .0388275      .3741762    
+> .5274076
+     upper east  |   .4249735   .0370208      .3519229    
+> .4980241
+     upper west  |   .3138359   .0268894      .2607769    
+> .3668948
+----------------------------------------------------------
+> --------
+
+. svy:tab anaStatus v024
+(running tabulate on estimation sample)
+
+Number of strata   =        20                  Number of obs     =      2,434
+Number of PSUs     =       200                  Population size   = 23,071.551
+                                                Design df         =        180
+
+------------------------------------------------------------------------------------------------------------------------
+RECODE of |
+hw57      |
+(anemia   |                                                    region                                                   
+level)    |  western   central   greater     volta   eastern   ashanti  brong ah  northern  upper ea  upper we     Total
+----------+-------------------------------------------------------------------------------------------------------------
+ No anaem |    .0769     .0501     .1066     .0825     .0781      .135     .0614      .083     .0249     .0227     .7212
+ Moderate |    .0299     .0217     .0196     .0295     .0205     .0313     .0295     .0681     .0184     .0104     .2788
+          | 
+    Total |    .1068     .0718     .1262      .112     .0986     .1663     .0909     .1511     .0432     .0331         1
+------------------------------------------------------------------------------------------------------------------------
+  Key:  cell proportion
+
+  Pearson:
+    Uncorrected   chi2(9)         =  114.7704
+    Design-based  F(7.56, 1360.47)=    9.2979     P = 0.0000
+
+. svy:tab anaStatus v024,percent
+(running tabulate on estimation sample)
+
+Number of strata   =        20                  Number of obs     =      2,434
+Number of PSUs     =       200                  Population size   = 23,071.551
+                                                Design df         =        180
+
+------------------------------------------------------------------------------------------------------------------------
+RECODE of |
+hw57      |
+(anemia   |                                                    region                                                   
+level)    |  western   central   greater     volta   eastern   ashanti  brong ah  northern  upper ea  upper we     Total
+----------+-------------------------------------------------------------------------------------------------------------
+ No anaem |    7.695     5.009     10.66     8.255     7.812      13.5     6.139       8.3     2.485     2.269     72.12
+ Moderate |    2.986     2.168     1.963      2.95     2.046     3.127     2.954     6.813     1.837     1.038     27.88
+          | 
+    Total |    10.68     7.176     12.62      11.2     9.857     16.63     9.093     15.11     4.322     3.306       100
+------------------------------------------------------------------------------------------------------------------------
+  Key:  cell percentage
+
+  Pearson:
+    Uncorrected   chi2(9)         =  114.7704
+    Design-based  F(7.56, 1360.47)=    9.2979     P = 0.0000
+
+. svy:tab v024 anaStatus,percent
+(running tabulate on estimation sample)
+
+Number of strata   =        20                  Number of obs     =      2,434
+Number of PSUs     =       200                  Population size   = 23,071.551
+                                                Design df         =        180
+
+----------------------------------------
+          |RECODE of hw57 (anemia level)
+   region | No anaem  Moderate     Total
+----------+-----------------------------
+  western |    7.695     2.986     10.68
+  central |    5.009     2.168     7.176
+  greater |    10.66     1.963     12.62
+    volta |    8.255      2.95      11.2
+  eastern |    7.812     2.046     9.857
+  ashanti |     13.5     3.127     16.63
+ brong ah |    6.139     2.954     9.093
+ northern |      8.3     6.813     15.11
+ upper ea |    2.485     1.837     4.322
+ upper we |    2.269     1.038     3.306
+          | 
+    Total |    72.12     27.88       100
+----------------------------------------
+  Key:  cell percentage
+
+  Pearson:
+    Uncorrected   chi2(9)         =  114.7704
+    Design-based  F(7.56, 1360.47)=    9.2979     P = 0.0000
+
+. do "C:\Users\hp\AppData\Local\Temp\STD6448_000000.tmp"
+
+. gen anStat=hw56
+
+. 
+end of do-file
+
+. do "C:\Users\hp\AppData\Local\Temp\STD6448_000000.tmp"
+
+. recode anStat(min/79.99=0 ) (80/max=1 "Anaemia")
+Rules defining value labels not allowed when overwriting a
+variable
+r(198);
+
+end of do-file
+
+r(198);
+
+. do "C:\Users\hp\AppData\Local\Temp\STD6448_000000.tmp"
+
+. label define b 0 "No anaemia" 1 "Anaemia"
+
+. 
+end of do-file
+
+. do "C:\Users\hp\AppData\Local\Temp\STD6448_000000.tmp"
+
+. label values anStat b
+
+. 
+end of do-file
+
+. tab anStat
+
+     anStat |      Freq.     Percent        Cum.
+------------+-----------------------------------
+         42 |          1        0.04        0.04
+         47 |          2        0.08        0.12
+         49 |          3        0.12        0.25
+         51 |          2        0.08        0.33
+         53 |          4        0.16        0.49
+         54 |          1        0.04        0.53
+         56 |          1        0.04        0.58
+         58 |          3        0.12        0.70
+         59 |          1        0.04        0.74
+         60 |          2        0.08        0.82
+         62 |          3        0.12        0.94
+         63 |          2        0.08        1.03
+         64 |          1        0.04        1.07
+         65 |          4        0.16        1.23
+         66 |          2        0.08        1.31
+         67 |          7        0.29        1.60
+         69 |          3        0.12        1.73
+         70 |          5        0.21        1.93
+         71 |          5        0.21        2.14
+         72 |          6        0.25        2.38
+         73 |          7        0.29        2.67
+         74 |          2        0.08        2.75
+         75 |          2        0.08        2.83
+         76 |          7        0.29        3.12
+         77 |          9        0.37        3.49
+         78 |          9        0.37        3.86
+         79 |          9        0.37        4.23
+         80 |         13        0.53        4.77
+         81 |         19        0.78        5.55
+         82 |         25        1.03        6.57
+         83 |         17        0.70        7.27
+         84 |         24        0.99        8.26
+         85 |         19        0.78        9.04
+         86 |         24        0.99       10.02
+         87 |         23        0.94       10.97
+         88 |         31        1.27       12.24
+         89 |         37        1.52       13.76
+         90 |         39        1.60       15.37
+         91 |         34        1.40       16.76
+         92 |         44        1.81       18.57
+         93 |         39        1.60       20.17
+         94 |         45        1.85       22.02
+         95 |         51        2.10       24.12
+         96 |         37        1.52       25.64
+         97 |         43        1.77       27.40
+         98 |         43        1.77       29.17
+         99 |         58        2.38       31.55
+        100 |         55        2.26       33.81
+        101 |         49        2.01       35.83
+        102 |         68        2.79       38.62
+        103 |         63        2.59       41.21
+        104 |         70        2.88       44.08
+        105 |         75        3.08       47.17
+        106 |         71        2.92       50.08
+        107 |         75        3.08       53.16
+        108 |         61        2.51       55.67
+        109 |         65        2.67       58.34
+        110 |         84        3.45       61.79
+        111 |         79        3.25       65.04
+        112 |         67        2.75       67.79
+        113 |         79        3.25       71.04
+        114 |         64        2.63       73.66
+        115 |         72        2.96       76.62
+        116 |         58        2.38       79.01
+        117 |         51        2.10       81.10
+        118 |         49        2.01       83.11
+        119 |         63        2.59       85.70
+        120 |         56        2.30       88.00
+        121 |         36        1.48       89.48
+        122 |         42        1.73       91.21
+        123 |         28        1.15       92.36
+        124 |         21        0.86       93.22
+        125 |         37        1.52       94.74
+        126 |         25        1.03       95.77
+        127 |         16        0.66       96.43
+        128 |         10        0.41       96.84
+        129 |         11        0.45       97.29
+        130 |         19        0.78       98.07
+        131 |         10        0.41       98.48
+        132 |          6        0.25       98.73
+        133 |          7        0.29       99.01
+        134 |          6        0.25       99.26
+        135 |          4        0.16       99.42
+        136 |          3        0.12       99.55
+        137 |          2        0.08       99.63
+        138 |          3        0.12       99.75
+        139 |          2        0.08       99.84
+        140 |          1        0.04       99.88
+        141 |          1        0.04       99.92
+        146 |          1        0.04       99.96
+        178 |          1        0.04      100.00
+------------+-----------------------------------
+      Total |      2,434      100.00
+
+. do "C:\Users\hp\AppData\Local\Temp\STD6448_000000.tmp"
+
+. recode anStat(min/79.99=0 ) (80/max=1)
+(anStat: 2434 changes made)
+
+. 
+end of do-file
+
+. do "C:\Users\hp\AppData\Local\Temp\STD6448_000000.tmp"
+
+. label values anStat b
+
+. 
+end of do-file
+
+. tab anStat
+
+     anStat |      Freq.     Percent        Cum.
+------------+-----------------------------------
+ No anaemia |        103        4.23        4.23
+    Anaemia |      2,331       95.77      100.00
+------------+-----------------------------------
+      Total |      2,434      100.00
+
+. svy:tab anStat
+(running tabulate on estimation sample)
+
+Number of strata   =        20                  Number of 
+> obs                                                     
+>         =      2,434
+Number of PSUs     =       200                  Population
+>  size                                                   
+>         = 23,071.551
+                                                Design df 
+>         =        180
+
+----------------------
+   anStat | proportion
+----------+-----------
+ No anaem |      .0367
+  Anaemia |      .9633
+          | 
+    Total |          1
+----------------------
+  Key:  proportion  =  cell proportion
+
+. do "C:\Users\hp\AppData\Local\Temp\STD6448_000000.tmp"
+
+. label define ana_val 0 "Anaemia" 1 " No Anaemia"
+
+. 
+end of do-file
+
+. do "C:\Users\hp\AppData\Local\Temp\STD6448_000000.tmp"
+
+. label values anStat ana_val
+
+. 
+end of do-file
+
+. svy:tab anStat
+(running tabulate on estimation sample)
+
+Number of strata   =        20                  Number of 
+> obs                                                     
+>         =      2,434
+Number of PSUs     =       200                  Population
+>  size                                                   
+>         = 23,071.551
+                                                Design df 
+>         =        180
+
+----------------------
+   anStat | proportion
+----------+-----------
+  Anaemia |      .0367
+  No Anae |      .9633
+          | 
+    Total |          1
+----------------------
+  Key:  proportion  =  cell proportion
+
+. tab anStat
+
+     anStat |      Freq.     Percent        Cum.
+------------+-----------------------------------
+    Anaemia |        103        4.23        4.23
+ No Anaemia |      2,331       95.77      100.00
+------------+-----------------------------------
+      Total |      2,434      100.00
+
+. svy:tab anaStat v024,percent
+(running tabulate on estimation sample)
+
+Number of strata   =        20                  Number of obs     =      2,434
+Number of PSUs     =       200                  Population size   = 23,071.551
+                                                Design df         =        180
+
+------------------------------------------------------------------------------------------------------------------------
+RECODE of |
+hw57      |
+(anemia   |                                                    region                                                   
+level)    |  western   central   greater     volta   eastern   ashanti  brong ah  northern  upper ea  upper we     Total
+----------+-------------------------------------------------------------------------------------------------------------
+ No anaem |    7.695     5.009     10.66     8.255     7.812      13.5     6.139       8.3     2.485     2.269     72.12
+ Moderate |    2.986     2.168     1.963      2.95     2.046     3.127     2.954     6.813     1.837     1.038     27.88
+          | 
+    Total |    10.68     7.176     12.62      11.2     9.857     16.63     9.093     15.11     4.322     3.306       100
+------------------------------------------------------------------------------------------------------------------------
+  Key:  cell percentage
+
+  Pearson:
+    Uncorrected   chi2(9)         =  114.7704
+    Design-based  F(7.56, 1360.47)=    9.2979     P = 0.0000
+
+. svy:tab v024 anaStat,percent
+(running tabulate on estimation sample)
+
+Number of strata   =        20                  Number of obs     =      2,434
+Number of PSUs     =       200                  Population size   = 23,071.551
+                                                Design df         =        180
+
+----------------------------------------
+          |RECODE of hw57 (anemia level)
+   region | No anaem  Moderate     Total
+----------+-----------------------------
+  western |    7.695     2.986     10.68
+  central |    5.009     2.168     7.176
+  greater |    10.66     1.963     12.62
+    volta |    8.255      2.95      11.2
+  eastern |    7.812     2.046     9.857
+  ashanti |     13.5     3.127     16.63
+ brong ah |    6.139     2.954     9.093
+ northern |      8.3     6.813     15.11
+ upper ea |    2.485     1.837     4.322
+ upper we |    2.269     1.038     3.306
+          | 
+    Total |    72.12     27.88       100
+----------------------------------------
+  Key:  cell percentage
+
+  Pearson:
+    Uncorrected   chi2(9)         =  114.7704
+    Design-based  F(7.56, 1360.47)=    9.2979     P = 0.0000
+
+. svy:tab v024 anaStatus,percent
+(running tabulate on estimation sample)
+
+Number of strata   =        20                  Number of obs     =      2,434
+Number of PSUs     =       200                  Population size   = 23,071.551
+                                                Design df         =        180
+
+----------------------------------------
+          |RECODE of hw57 (anemia level)
+   region | No anaem  Moderate     Total
+----------+-----------------------------
+  western |    7.695     2.986     10.68
+  central |    5.009     2.168     7.176
+  greater |    10.66     1.963     12.62
+    volta |    8.255      2.95      11.2
+  eastern |    7.812     2.046     9.857
+  ashanti |     13.5     3.127     16.63
+ brong ah |    6.139     2.954     9.093
+ northern |      8.3     6.813     15.11
+ upper ea |    2.485     1.837     4.322
+ upper we |    2.269     1.038     3.306
+          | 
+    Total |    72.12     27.88       100
+----------------------------------------
+  Key:  cell percentage
+
+  Pearson:
+    Uncorrected   chi2(9)         =  114.7704
+    Design-based  F(7.56, 1360.47)=    9.2979     P = 0.0000
+
+. tab anStat
+
+     anStat |      Freq.     Percent        Cum.
+------------+-----------------------------------
+    Anaemia |        103        4.23        4.23
+ No Anaemia |      2,331       95.77      100.00
+------------+-----------------------------------
+      Total |      2,434      100.00
+
+. svy:tab anStat v024,percent
+(running tabulate on estimation sample)
+
+Number of strata   =        20                  Number of obs     =      2,434
+Number of PSUs     =       200                  Population size   = 23,071.551
+                                                Design df         =        180
+
+------------------------------------------------------------------------------------------------------------------------
+          |                                                    region                                                   
+   anStat |  western   central   greater     volta   eastern   ashanti  brong ah  northern  upper ea  upper we     Total
+----------+-------------------------------------------------------------------------------------------------------------
+  Anaemia |    .3737     .3855         0     .3451     .0981     .5216     .1698      1.58     .0758     .1193     3.669
+  No Anae |    10.31     6.791     12.62     10.86     9.759     16.11     8.923     13.53     4.246     3.187     96.33
+          | 
+    Total |    10.68     7.176     12.62      11.2     9.857     16.63     9.093     15.11     4.322     3.306       100
+------------------------------------------------------------------------------------------------------------------------
+  Key:  cell percentage
+
+  Pearson:
+    Uncorrected   chi2(9)         =   69.6832
+    Design-based  F(6.79, 1221.41)=    4.9464     P = 0.0000
+
+. svy:tab v024 anStat,percent
+(running tabulate on estimation sample)
+
+Number of strata   =        20                  Number of obs     =      2,434
+Number of PSUs     =       200                  Population size   = 23,071.551
+                                                Design df         =        180
+
+-------------------------------------
+          |          anStat          
+   region | Anaemia  No Anae    Total
+----------+--------------------------
+  western |   .3737    10.31    10.68
+  central |   .3855    6.791    7.176
+  greater |       0    12.62    12.62
+    volta |   .3451    10.86     11.2
+  eastern |   .0981    9.759    9.857
+  ashanti |   .5216    16.11    16.63
+ brong ah |   .1698    8.923    9.093
+ northern |    1.58    13.53    15.11
+ upper ea |   .0758    4.246    4.322
+ upper we |   .1193    3.187    3.306
+          | 
+    Total |   3.669    96.33      100
+-------------------------------------
+  Key:  cell percentage
+
+  Pearson:
+    Uncorrected   chi2(9)         =   69.6832
+    Design-based  F(6.79, 1221.41)=    4.9464     P = 0.0000
+
+. svy:tab v024 anStat
+(running tabulate on estimation sample)
+
+Number of strata   =        20                  Number of obs     =      2,434
+Number of PSUs     =       200                  Population size   = 23,071.551
+                                                Design df         =        180
+
+-------------------------------------
+          |          anStat          
+   region | Anaemia  No Anae    Total
+----------+--------------------------
+  western |   .0037    .1031    .1068
+  central |   .0039    .0679    .0718
+  greater |       0    .1262    .1262
+    volta |   .0035    .1086     .112
+  eastern | 9.8e-04    .0976    .0986
+  ashanti |   .0052    .1611    .1663
+ brong ah |   .0017    .0892    .0909
+ northern |   .0158    .1353    .1511
+ upper ea | 7.6e-04    .0425    .0432
+ upper we |   .0012    .0319    .0331
+          | 
+    Total |   .0367    .9633        1
+-------------------------------------
+  Key:  cell proportion
+
+  Pearson:
+    Uncorrected   chi2(9)         =   69.6832
+    Design-based  F(6.79, 1221.41)=    4.9464     P = 0.0000
+
+. svy:tab v024 anStat,percent
+(running tabulate on estimation sample)
+
+Number of strata   =        20                  Number of obs     =      2,434
+Number of PSUs     =       200                  Population size   = 23,071.551
+                                                Design df         =        180
+
+-------------------------------------
+          |          anStat          
+   region | Anaemia  No Anae    Total
+----------+--------------------------
+  western |   .3737    10.31    10.68
+  central |   .3855    6.791    7.176
+  greater |       0    12.62    12.62
+    volta |   .3451    10.86     11.2
+  eastern |   .0981    9.759    9.857
+  ashanti |   .5216    16.11    16.63
+ brong ah |   .1698    8.923    9.093
+ northern |    1.58    13.53    15.11
+ upper ea |   .0758    4.246    4.322
+ upper we |   .1193    3.187    3.306
+          | 
+    Total |   3.669    96.33      100
+-------------------------------------
+  Key:  cell percentage
+
+  Pearson:
+    Uncorrected   chi2(9)         =   69.6832
+    Design-based  F(6.79, 1221.41)=    4.9464     P = 0.0000
+
+. svy:tab anStat v024,percent
+(running tabulate on estimation sample)
+
+Number of strata   =        20                  Number of obs     =      2,434
+Number of PSUs     =       200                  Population size   = 23,071.551
+                                                Design df         =        180
+
+------------------------------------------------------------------------------------------------------------------------
+          |                                                    region                                                   
+   anStat |  western   central   greater     volta   eastern   ashanti  brong ah  northern  upper ea  upper we     Total
+----------+-------------------------------------------------------------------------------------------------------------
+  Anaemia |    .3737     .3855         0     .3451     .0981     .5216     .1698      1.58     .0758     .1193     3.669
+  No Anae |    10.31     6.791     12.62     10.86     9.759     16.11     8.923     13.53     4.246     3.187     96.33
+          | 
+    Total |    10.68     7.176     12.62      11.2     9.857     16.63     9.093     15.11     4.322     3.306       100
+------------------------------------------------------------------------------------------------------------------------
+  Key:  cell percentage
+
+  Pearson:
+    Uncorrected   chi2(9)         =   69.6832
+    Design-based  F(6.79, 1221.41)=    4.9464     P = 0.0000
+
+. svy:tab anaStatu v024
+(running tabulate on estimation sample)
+
+Number of strata   =        20                  Number of obs     =      2,434
+Number of PSUs     =       200                  Population size   = 23,071.551
+                                                Design df         =        180
+
+------------------------------------------------------------------------------------------------------------------------
+RECODE of |
+hw57      |
+(anemia   |                                                    region                                                   
+level)    |  western   central   greater     volta   eastern   ashanti  brong ah  northern  upper ea  upper we     Total
+----------+-------------------------------------------------------------------------------------------------------------
+ No anaem |    .0769     .0501     .1066     .0825     .0781      .135     .0614      .083     .0249     .0227     .7212
+ Moderate |    .0299     .0217     .0196     .0295     .0205     .0313     .0295     .0681     .0184     .0104     .2788
+          | 
+    Total |    .1068     .0718     .1262      .112     .0986     .1663     .0909     .1511     .0432     .0331         1
+------------------------------------------------------------------------------------------------------------------------
+  Key:  cell proportion
+
+  Pearson:
+    Uncorrected   chi2(9)         =  114.7704
+    Design-based  F(7.56, 1360.47)=    9.2979     P = 0.0000
+
+. svy:tab anStat v024
+(running tabulate on estimation sample)
+
+Number of strata   =        20                  Number of obs     =      2,434
+Number of PSUs     =       200                  Population size   = 23,071.551
+                                                Design df         =        180
+
+------------------------------------------------------------------------------------------------------------------------
+          |                                                    region                                                   
+   anStat |  western   central   greater     volta   eastern   ashanti  brong ah  northern  upper ea  upper we     Total
+----------+-------------------------------------------------------------------------------------------------------------
+  Anaemia |    .0037     .0039         0     .0035   9.8e-04     .0052     .0017     .0158   7.6e-04     .0012     .0367
+  No Anae |    .1031     .0679     .1262     .1086     .0976     .1611     .0892     .1353     .0425     .0319     .9633
+          | 
+    Total |    .1068     .0718     .1262      .112     .0986     .1663     .0909     .1511     .0432     .0331         1
+------------------------------------------------------------------------------------------------------------------------
+  Key:  cell proportion
+
+  Pearson:
+    Uncorrected   chi2(9)         =   69.6832
+    Design-based  F(6.79, 1221.41)=    4.9464     P = 0.0000
+
+. svy:mean anStat, over(v024)
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata =      20          Number of obs   =      2,434
+Number of PSUs   =     200          Population size = 23,071.551
+                                    Design df       =        180
+
+----------------------------------------------------------------
+               |             Linearized
+               |       Mean   Std. Err.     [95% Conf. Interval]
+---------------+------------------------------------------------
+ c.anStat@v024 |
+      western  |   .9650116   .0173475       .930781    .9992423
+      central  |   .9462778   .0155554      .9155833    .9769722
+greater accra  |          1          .             .           .
+        volta  |   .9691975   .0166825      .9362791    1.002116
+      eastern  |   .9900483   .0075892      .9750729    1.005024
+      ashanti  |   .9686307   .0130691      .9428423     .994419
+  brong ahafo  |   .9813243   .0088464      .9638683    .9987803
+     northern  |   .8954181   .0226959      .8506338    .9402023
+   upper east  |   .9824516   .0097295      .9632531     1.00165
+   upper west  |   .9639298   .0103704      .9434665    .9843931
+----------------------------------------------------------------
+
+. svy:tab v024 anStat,percent
+(running tabulate on estimation sample)
+
+Number of strata   =        20                  Number of obs     =      2,434
+Number of PSUs     =       200                  Population size   = 23,071.551
+                                                Design df         =        180
+
+-------------------------------------
+          |          anStat          
+   region | Anaemia  No Anae    Total
+----------+--------------------------
+  western |   .3737    10.31    10.68
+  central |   .3855    6.791    7.176
+  greater |       0    12.62    12.62
+    volta |   .3451    10.86     11.2
+  eastern |   .0981    9.759    9.857
+  ashanti |   .5216    16.11    16.63
+ brong ah |   .1698    8.923    9.093
+ northern |    1.58    13.53    15.11
+ upper ea |   .0758    4.246    4.322
+ upper we |   .1193    3.187    3.306
+          | 
+    Total |   3.669    96.33      100
+-------------------------------------
+  Key:  cell percentage
+
+  Pearson:
+    Uncorrected   chi2(9)         =   69.6832
+    Design-based  F(6.79, 1221.41)=    4.9464     P = 0.0000
+
+. svy:tab v024 malStatus,percent
+(running tabulate on estimation sample)
+
+Number of strata   =        19                  Number of obs     =        329
+Number of PSUs     =       130                  Population size   = 2,583.1089
+                                                Design df         =        111
+
+----------------------------------------
+          |  RECODE of s405a (result of 
+          |     malaria blood test)     
+   region | Negative  Positive     Total
+----------+-----------------------------
+  western |    6.501     12.97     19.47
+  central |     1.69      4.97      6.66
+  greater |    .5692      2.73       3.3
+    volta |    2.643      9.01     11.65
+  eastern |    2.023     4.476     6.499
+  ashanti |    6.601     5.837     12.44
+ brong ah |    4.962      7.06     12.02
+ northern |    3.397      8.85     12.25
+ upper ea |    2.833     8.171        11
+ upper we |    2.092      2.61     4.701
+          | 
+    Total |    33.31     66.69       100
+----------------------------------------
+  Key:  cell percentage
+
+  Pearson:
+    Uncorrected   chi2(9)         =   14.5659
+    Design-based  F(6.96, 772.52) =    0.9371     P = 0.4765
+
+. svy:tab mean malStatus, over(v024)
+variable mean not found
+r(111);
+
+. svy:mean malStatus, over(v024)
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata =      19            Number of obs   =        329
+Number of PSUs   =     130            Population size = 2,583.1089
+                                      Design df       =        111
+
+------------------------------------------------------------------
+                 |             Linearized
+                 |       Mean   Std. Err.     [95% Conf. Interval]
+-----------------+------------------------------------------------
+c.malStatus@v024 |
+        western  |   .6661664   .0879777      .4918328    .8405001
+        central  |   .7462364   .0553329      .6365906    .8558822
+  greater accra  |   .8274905   .1548209      .5207025    1.134279
+          volta  |   .7731843   .1263393      .5228347    1.023534
+        eastern  |   .6887339   .1437613      .4038613    .9736065
+        ashanti  |   .4692813   .1354983      .2007823    .7377803
+    brong ahafo  |   .5872616   .0759012      .4368583    .7376649
+       northern  |   .7226443   .0945435         .5353    .9099886
+     upper east  |   .7425269   .0862118      .5716924    .9133615
+     upper west  |   .5550907   .0745027      .4074587    .7027227
+------------------------------------------------------------------
+
+. br 511 512
+511 invalid name
+r(198);
+
+. br s511 s512
+
+. svy:mean s501, over(v024)
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata =      20          Number of obs   =      2,434
+Number of PSUs   =     200          Population size = 23,071.551
+                                    Design df       =        180
+
+----------------------------------------------------------------
+               |             Linearized
+               |       Mean   Std. Err.     [95% Conf. Interval]
+---------------+------------------------------------------------
+   c.s501@v024 |
+      western  |    .567809   .0528811      .4634624    .6721557
+      central  |   .5236709   .0771583      .3714198    .6759219
+greater accra  |   .7223252   .0532659      .6172194    .8274311
+        volta  |   .6252315   .0992965      .4292965    .8211664
+      eastern  |   .5111226   .0711032      .3708196    .6514256
+      ashanti  |   .6095553   .0484918      .5138699    .7052408
+  brong ahafo  |   .5680025   .0416936      .4857314    .6502736
+     northern  |   .5378883   .0449794      .4491336     .626643
+   upper east  |    .591472   .0364722      .5195039      .66344
+   upper west  |   .4471774    .046743      .3549426    .5394122
+----------------------------------------------------------------
+

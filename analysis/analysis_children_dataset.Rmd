@@ -1,0 +1,89 @@
+---
+title: "analysis_children_dataset"
+author: "ktemadarko"
+date: "2021-05-06"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+
+```{r load packages, message=FALSE, warning=FALSE, include=FALSE}
+Sys.setenv(tz="GMT")
+library(tidyverse)
+library(haven)
+library(survey)
+library(srvyr)
+library(flextable)
+library(magrittr)
+```
+
+Stata data preprocessing
+
+To create categorical variable anaStatus, with levels-"No anaemia/ Mild"and "Moderate/ Severe Anaemia"
+
+```{r stata, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+#svyset v021, strata(v023) weight(wgt)
+
+#recode hw57(3 4=0 "No anaemia/ Mild")(1 2  =1 "Moderate/ Severe Anaemia"),gen(anaStatus)
+
+```
+
+To create categorical variable , with levels-"No anaemia/ Mild"and "Moderate/ Severe Anaemia"
+
+```{r}
+
+```
+
+```{r load women_mal data, message=FALSE, warning=FALSE, include=FALSE}
+child_malaria <- read_dta("data/child_malaria.dta")
+```
+
+```{r tibble child dataset, message=FALSE, warning=FALSE, include=FALSE}
+View(chm)
+chm <- tibble(child_malaria)
+```
+
+```{r find column index from labels, message=FALSE, warning=FALSE, include=FALSE}
+match("v024", names(chm)) #answer= column 31
+match("anaemiaStatus", names(chm)) #answer= column 409
+
+#match("s512", names(wm1))
+#match("s511", names(wm1))
+```
+
+Remember to convert continuous variables (region, anaemiaStatus) to categorical data
+
+```{r factor , message=FALSE, warning=FALSE, include=FALSE}
+#create new variable chm1 to preserve chm
+
+chm1<- chm%>%
+  mutate(across(c(31,409),as_factor))
+```
+
+```{r svyset, message=FALSE, warning=FALSE, include=FALSE}
+
+dhsdesign<-chm1%>%
+  as_survey_design(id=v021,strata=v023,weights=wgt)
+```
+
+**Anaemia status by region**
+
+```{r 01_srvyr wrong way, message=FALSE, warning=FALSE, include=FALSE}
+dhsdesign%>%
+  group_by(v024)%>%
+  summarise(m=survey_mean(anaemiaStatus))
+
+
+```
+
+```{r 02_srvyr wrong way, message=FALSE, warning=FALSE}
+flextable(dhsdesign%>%
+  group_by(v024,anaemiaStatus)%>%
+  summarise(Prevalence=round(survey_mean(),4)*100))
+
+flextable(dhsdesign%>%
+  group_by(anaemiaStatus, v024)%>%
+  summarise(Prevalence=round(survey_mean(),4)*100))
+```

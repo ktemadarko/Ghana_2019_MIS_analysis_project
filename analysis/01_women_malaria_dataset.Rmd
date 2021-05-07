@@ -1,0 +1,176 @@
+---
+title: "first-analysis"
+author: "ktemadarko"
+date: "2021-05-01"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+
+### Data from Ghana Malaria Indicator Survey 2019
+
+```{r remove eval=FALSE, include=FALSE}
+library(car)
+library(data.table)
+d  = as.data.table(mtcars)
+dcast(d, cyl~., list(min, mean, max), value.var = c('mpg', 'wt'))
+```
+
+```{r shared-code, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+source(here::here("code/functions.R"))
+
+```
+
+```{r load packages, message=FALSE, warning=FALSE, include=FALSE}
+Sys.setenv(tz="GMT")
+library(tidyverse)
+library(haven)
+library(survey)
+library(srvyr)
+library(flextable)
+library(magrittr)
+```
+
+#### Stata Data Preprocessing
+
+To create categorical variable binary Living_Children, with 2 levels from v219-
+
+-   "0 or No" (Zero living children)
+
+-   "1 or Yes" (Living children plus current pregnancy)
+
+```{r living_children, message=FALSE, warning=FALSE, include=FALSE}
+#gen Living_Children=(v219 != 0)
+#label define bi 0 "No" 1 "Yes"
+#label values Living_Children bi
+```
+
+To create categorical variable binary Allow_mal_vaccine, with 2 levels by recoding s512 and removing don't know level
+
+-   "No" (Not allow child to be vaccinated)
+
+-   "Yes" (Yes will allow child to be vaccinated)
+
+```{r allow_mal variable, message=FALSE, warning=FALSE, include=FALSE}
+#recode s512 (0 8 =0 "No") (1=1 "Yes"), gen (Allow_mal_vaccine)
+```
+
+```{r load_women_mal data, message=FALSE, warning=FALSE, include=FALSE}
+women_malaria <- read_dta("data/women_malaria.dta")
+#View(women_malaria)
+wm <- tibble(women_malaria)
+
+```
+
+create new variable wm1 to preserve wm
+wm1 subset of data where living children== yes
+```{r wm1 creation, message=FALSE, warning=FALSE, include=FALSE}
+#create new variable wm1 to preserve wm
+wm1=wm%>%
+  filter(Living_Children==1)
+
+#write data to stata
+#write_dta(wm1,"Living_Children.dta")
+
+```
+
+
+
+```{r find_column index from labels, message=FALSE, warning=FALSE, inlude=FALSE}
+match("v024", names(wm1)) #column 28
+match("s510", names(wm1)) #column 1513
+match("s512", names(wm1)) #column 1515
+match("s511", names(wm1)) #column 1514
+match("Living_Children", names(wm1)) #column 1739
+match("Allow_mal_vaccine", names(wm1))
+```
+
+```{r 01_surveyset, include=FALSE}
+ # mutate(across(c(28,1513:1515,1739),drop_levels))
+wm1%<>%
+  mutate(across(c(28),str_to_title))%>%
+  mutate(across(c(28,1513:1515,1739,1740),as_factor))%>%
+  rename(Region=v024)
+  
+
+summary(wm1[,c(28,1513:1515,1739,1740)])
+
+#survey_set
+women_svy<-wm1%>%
+  as_survey_design(id=v021,strata=v023,weights=wgt)
+
+```
+
+
+```{r description, message=FALSE, warning=FALSE, include=FALSE}
+explanatory=tibble(Variable=c("Living Children"),
+           `Operational Description` = c("Whether the Woman interviewed has living children"),
+           `Scale of Measurement`= c("Binary"),Levels=c("Yes or No"))
+
+response=tibble(Variable=c("Allow_mal_vaccine"),
+           `Operational Description` = c("Will the womean allow her child to be vaccinated"),
+           `Scale of Measurement`= c("Binary"),Levels=c("Yes or No"))
+
+ft1 <-flextable(response)
+ft2 <-flextable(explanatory)
+```
+
+```{r flextable, echo=FALSE}
+
+
+ft1%<>%theme_vanilla()%>%
+  set_caption(caption="Table 1.1- Description of response variable of interest")
+
+ft1
+
+
+ft2%<>%theme_vanilla()%>%
+  set_caption(caption="Table 1.2- Description of explanatory variables of interest")
+
+ft2
+```
+
+----- Survey Analysis----------------------------------
+
+
+Tabulate Allow child to take malaria vaccine over Region 
+```{r 02_svy_tab, message=FALSE, warning=FALSE, include=FALSE}
+#tabulate Living Children by know about mal vaccine and accept mal vaccine for child
+#create output table with flextable package
+
+allow_mal=women_svy%>%
+              group_by(Region,Allow_mal_vaccine)%>%
+              summarise(Percentage=round(survey_mean(),4)*100)%>%
+              pivot_wider(names_from = Allow_mal_vaccine, 
+                          values_from=Percentage)
+
+allow_mal_df = allow_mal[, -c(2)]
+
+ft3<- flextable(allow_mal_df)
+
+ft3 %<>%theme_vanilla()%>%
+  set_caption(caption="Table 1.3- Percentage of Women aged 15-49 in each region grouped by their choices about the Malaria vaccine")%>%
+  color(j="Yes", color = "blue")%>%
+  bold(j="Yes", bold = TRUE)%>%
+   add_header_row(values =c(" ", " Allow Child to take Malaria Vaccine"),
+                        colwidths=c(1,2))
+
+
+
+```
+
+<br>
+Tabulate Living Children by know about mal vaccine and accept mal vaccine for child
+```{r flextable output1, message=FALSE, warning=FALSE}
+ft3
+
+
+```
+
+<br>
+
+```{r flextable output2, message=FALSE, warning=FALSE, include=FALSE}
+#ft4
+```

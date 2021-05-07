@@ -1,0 +1,852 @@
+---------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:\Users\hp\Documents\thesis\Ghana_2019_MIS_analysis_pro
+> ject\data\01_w_mal.log
+  log type:  text
+ opened on:   6 May 2021, 11:55:48
+
+. 
+. //Date: 5th May, 2021 last log "01_w_mal.log"
+. 
+. //check v220 ever married
+. gen wgt=v005/100000
+variable wgt already defined
+r(110);
+
+end of do-file
+
+r(110);
+
+. do "C:\Users\hp\Documents\thesis\Ghana_2019_MIS_analysis_project\da
+> ta\01_women_mal.do"
+
+. use "C:\Users\hp\Documents\thesis\Ghana_2019_MIS_analysis_project\d
+> ata\women_malaria.dta"
+
+. 
+. log using "01_w_mal.log",append
+log file already open
+r(604);
+
+end of do-file
+
+r(604);
+
+. do "C:\Users\hp\AppData\Local\Temp\STD308c_000000.tmp"
+
+. svyset v021 [pw=wgt],strata(v023)
+
+      pweight: wgt
+          VCE: linearized
+  Single unit: missing
+     Strata 1: v023
+         SU 1: v021
+        FPC 1: <zero>
+
+. 
+end of do-file
+
+. do "C:\Users\hp\AppData\Local\Temp\STD308c_000000.tmp"
+
+. gen Living_Children=(v219 != 0)
+variable Living_Children already defined
+r(110);
+
+end of do-file
+
+r(110);
+
+. drop Living_Children
+
+. do "C:\Users\hp\AppData\Local\Temp\STD308c_000000.tmp"
+
+. gen Living_Children=(v219 != 0)
+
+. 
+end of do-file
+
+. br v219 Living_Children
+
+. do "C:\Users\hp\AppData\Local\Temp\STD308c_000000.tmp"
+
+. label define bi 0 "No" 1 "Yes"
+
+. 
+end of do-file
+
+. do "C:\Users\hp\AppData\Local\Temp\STD308c_000000.tmp"
+
+. label values Living_Children bi
+
+. 
+end of do-file
+
+. svy:mean s501, over(v024)
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata =      20          Number of obs   =      5,181
+Number of PSUs   =     200          Population size = 51,809.999
+                                    Design df       =        180
+
+----------------------------------------------------------------
+               |             Linearized
+               |       Mean   Std. Err.     [95% Conf. Interval]
+---------------+------------------------------------------------
+   c.s501@v024 |
+      western  |    .596746   .0347934      .5280905    .6654014
+      central  |   .5447055   .0450784      .4557554    .6336557
+greater accra  |   .7068247    .039871        .62815    .7854994
+        volta  |   .5881952   .0602732      .4692623    .7071282
+      eastern  |   .5321626    .031317       .470367    .5939583
+      ashanti  |   .6370393   .0345492      .5688657    .7052129
+  brong ahafo  |   .5037786   .0277685      .4489849    .5585723
+     northern  |   .4948388   .0357729      .4242506    .5654269
+   upper east  |   .5607233   .0228096      .5157147     .605732
+   upper west  |   .4485579    .027159      .3949669    .5021488
+----------------------------------------------------------------
+
+. svy:tab v024 s501, percent
+(running tabulate on estimation sample)
+
+Number of strata   =        20                  Number of obs     =  
+>     5,181
+Number of PSUs     =       200                  Population size   = 5
+> 1,809.999
+                                                Design df         =  
+>       180
+
+-------------------------------
+          |  seen or heard any 
+          |   messages about   
+          |  malaria in past 6 
+          |       months       
+   region |    no    yes  Total
+----------+--------------------
+  western | 3.901  5.773  9.674
+  central | 3.238  3.874  7.111
+  greater | 5.308   12.8   18.1
+    volta | 4.462  6.373  10.84
+  eastern | 5.798  6.595  12.39
+  ashanti | 6.658  11.69  18.34
+ brong ah | 3.618  3.673  7.291
+ northern | 4.695  4.599  9.293
+ upper ea | 1.819  2.321   4.14
+ upper we | 1.552  1.262  2.814
+          | 
+    Total | 41.05  58.95    100
+-------------------------------
+  Key:  cell percentage
+
+  Pearson:
+    Uncorrected   chi2(9)         =  116.1283
+    Design-based  F(5.72, 1029.33)=    4.0062     P = 0.0007
+
+. svy:mean s512, over(v024)
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata =      20          Number of obs   =      5,181
+Number of PSUs   =     200          Population size = 51,809.999
+                                    Design df       =        180
+
+----------------------------------------------------------------
+               |             Linearized
+               |       Mean   Std. Err.     [95% Conf. Interval]
+---------------+------------------------------------------------
+   c.s512@v024 |
+      western  |   1.129812   .0926493      .9469939    1.312631
+      central  |   1.089032   .0537708      .9829297    1.195134
+greater accra  |   1.544137   .0855438      1.375339    1.712934
+        volta  |   1.114541     .05562       1.00479    1.224292
+      eastern  |   1.155158   .0760296      1.005134    1.305182
+      ashanti  |   1.028967   .0386991      .9526053     1.10533
+  brong ahafo  |   1.037214   .0410496      .9562139    1.118214
+     northern  |   1.059526   .0391349      .9823043    1.136749
+   upper east  |   .9823728   .0297174      .9237335    1.041012
+   upper west  |   .9497053   .0343177      .8819886    1.017422
+----------------------------------------------------------------
+
+. svy:mean s501, over(v024)
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata =      20          Number of obs   =      5,181
+Number of PSUs   =     200          Population size = 51,809.999
+                                    Design df       =        180
+
+----------------------------------------------------------------
+               |             Linearized
+               |       Mean   Std. Err.     [95% Conf. Interval]
+---------------+------------------------------------------------
+   c.s501@v024 |
+      western  |    .596746   .0347934      .5280905    .6654014
+      central  |   .5447055   .0450784      .4557554    .6336557
+greater accra  |   .7068247    .039871        .62815    .7854994
+        volta  |   .5881952   .0602732      .4692623    .7071282
+      eastern  |   .5321626    .031317       .470367    .5939583
+      ashanti  |   .6370393   .0345492      .5688657    .7052129
+  brong ahafo  |   .5037786   .0277685      .4489849    .5585723
+     northern  |   .4948388   .0357729      .4242506    .5654269
+   upper east  |   .5607233   .0228096      .5157147     .605732
+   upper west  |   .4485579    .027159      .3949669    .5021488
+----------------------------------------------------------------
+
+. svy:mean s512, over(v024)
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata =      20          Number of obs   =      5,181
+Number of PSUs   =     200          Population size = 51,809.999
+                                    Design df       =        180
+
+----------------------------------------------------------------
+               |             Linearized
+               |       Mean   Std. Err.     [95% Conf. Interval]
+---------------+------------------------------------------------
+   c.s512@v024 |
+      western  |   1.129812   .0926493      .9469939    1.312631
+      central  |   1.089032   .0537708      .9829297    1.195134
+greater accra  |   1.544137   .0855438      1.375339    1.712934
+        volta  |   1.114541     .05562       1.00479    1.224292
+      eastern  |   1.155158   .0760296      1.005134    1.305182
+      ashanti  |   1.028967   .0386991      .9526053     1.10533
+  brong ahafo  |   1.037214   .0410496      .9562139    1.118214
+     northern  |   1.059526   .0391349      .9823043    1.136749
+   upper east  |   .9823728   .0297174      .9237335    1.041012
+   upper west  |   .9497053   .0343177      .8819886    1.017422
+----------------------------------------------------------------
+
+. svy:tab v024 s512, percent
+(running tabulate on estimation sample)
+
+Number of strata   =        20                  Number of obs     =  
+>     5,181
+Number of PSUs     =       200                  Population size   = 5
+> 1,809.999
+                                                Design df         =  
+>       180
+
+--------------------------------------------------
+          |  allow child to be vaccinated against 
+          |                malaria                
+   region |       no       yes  don't kn     Total
+----------+---------------------------------------
+  western |    .7435     8.645     .2856     9.674
+  central |    .4188     6.542     .1503     7.111
+  greater |    1.476     15.01     1.618      18.1
+    volta |    1.267      9.21     .3583     10.84
+  eastern |    .8731     11.12     .3994     12.39
+  ashanti |    .6128     17.57     .1635     18.34
+ brong ah |    .1847     7.041     .0651     7.291
+ northern |    .3857     8.773     .1341     9.293
+ upper ea |    .3059     3.801     .0333      4.14
+ upper we |    .2425     2.557     .0144     2.814
+          | 
+    Total |     6.51     90.27     3.222       100
+--------------------------------------------------
+  Key:  cell percentage
+
+  Pearson:
+    Uncorrected   chi2(18)        =  202.1814
+    Design-based  F(13.51, 2431.65)=    7.1303    P = 0.0000
+
+. svy:tab s512, percent
+(running tabulate on estimation sample)
+
+Number of strata   =        20                  Number of obs     =  
+>     5,181
+Number of PSUs     =       200                  Population size   = 5
+> 1,809.999
+                                                Design df         =  
+>       180
+
+----------------------
+allow     |
+child to  |
+be        |
+vaccinate |
+d against |
+malaria   | percentage
+----------+-----------
+       no |       6.51
+      yes |      90.27
+ don't kn |      3.222
+          | 
+    Total |        100
+----------------------
+  Key:  percentage  =  cell percentage
+
+. svy:tab s512, nolab'
+(running tabulate on estimation sample)
+option ' not allowed
+r(198);
+
+. svy:tab s512, nolab
+(running tabulate on estimation sample)
+
+Number of strata   =        20                  Number of obs     =  
+>     5,181
+Number of PSUs     =       200                  Population size   = 5
+> 1,809.999
+                                                Design df         =  
+>       180
+
+----------------------
+     s512 | proportion
+----------+-----------
+        0 |      .0651
+        1 |      .9027
+        8 |      .0322
+          | 
+    Total |          1
+----------------------
+  Key:  proportion  =  cell proportion
+
+. svy:tab v024 s512, percent
+(running tabulate on estimation sample)
+
+Number of strata   =        20                  Number of obs     =  
+>     5,181
+Number of PSUs     =       200                  Population size   = 5
+> 1,809.999
+                                                Design df         =  
+>       180
+
+--------------------------------------------------
+          |  allow child to be vaccinated against 
+          |                malaria                
+   region |       no       yes  don't kn     Total
+----------+---------------------------------------
+  western |    .7435     8.645     .2856     9.674
+  central |    .4188     6.542     .1503     7.111
+  greater |    1.476     15.01     1.618      18.1
+    volta |    1.267      9.21     .3583     10.84
+  eastern |    .8731     11.12     .3994     12.39
+  ashanti |    .6128     17.57     .1635     18.34
+ brong ah |    .1847     7.041     .0651     7.291
+ northern |    .3857     8.773     .1341     9.293
+ upper ea |    .3059     3.801     .0333      4.14
+ upper we |    .2425     2.557     .0144     2.814
+          | 
+    Total |     6.51     90.27     3.222       100
+--------------------------------------------------
+  Key:  cell percentage
+
+  Pearson:
+    Uncorrected   chi2(18)        =  202.1814
+    Design-based  F(13.51, 2431.65)=    7.1303    P = 0.0000
+
+. svy:tab v024 s501, percent
+(running tabulate on estimation sample)
+
+Number of strata   =        20                  Number of obs     =  
+>     5,181
+Number of PSUs     =       200                  Population size   = 5
+> 1,809.999
+                                                Design df         =  
+>       180
+
+-------------------------------
+          |  seen or heard any 
+          |   messages about   
+          |  malaria in past 6 
+          |       months       
+   region |    no    yes  Total
+----------+--------------------
+  western | 3.901  5.773  9.674
+  central | 3.238  3.874  7.111
+  greater | 5.308   12.8   18.1
+    volta | 4.462  6.373  10.84
+  eastern | 5.798  6.595  12.39
+  ashanti | 6.658  11.69  18.34
+ brong ah | 3.618  3.673  7.291
+ northern | 4.695  4.599  9.293
+ upper ea | 1.819  2.321   4.14
+ upper we | 1.552  1.262  2.814
+          | 
+    Total | 41.05  58.95    100
+-------------------------------
+  Key:  cell percentage
+
+  Pearson:
+    Uncorrected   chi2(9)         =  116.1283
+    Design-based  F(5.72, 1029.33)=    4.0062     P = 0.0007
+
+. do "C:\Users\hp\AppData\Local\Temp\STD308c_000000.tmp"
+
+. recode s501 (0 8 =0 "No") (1=1 "Yes"), gen (heard_seen_mal_bi)
+(0 differences between s501 and heard_seen_mal_bi)
+
+. 
+end of do-file
+
+. svy:mean s512, over(v024)
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata =      20          Number of obs   =      5,181
+Number of PSUs   =     200          Population size = 51,809.999
+                                    Design df       =        180
+
+----------------------------------------------------------------
+               |             Linearized
+               |       Mean   Std. Err.     [95% Conf. Interval]
+---------------+------------------------------------------------
+   c.s512@v024 |
+      western  |   1.129812   .0926493      .9469939    1.312631
+      central  |   1.089032   .0537708      .9829297    1.195134
+greater accra  |   1.544137   .0855438      1.375339    1.712934
+        volta  |   1.114541     .05562       1.00479    1.224292
+      eastern  |   1.155158   .0760296      1.005134    1.305182
+      ashanti  |   1.028967   .0386991      .9526053     1.10533
+  brong ahafo  |   1.037214   .0410496      .9562139    1.118214
+     northern  |   1.059526   .0391349      .9823043    1.136749
+   upper east  |   .9823728   .0297174      .9237335    1.041012
+   upper west  |   .9497053   .0343177      .8819886    1.017422
+----------------------------------------------------------------
+
+. svy:mean heard_seen_mal_bi , over(v024)
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata =      20                    Number 
+> of obs                                             
+>          =      5,181
+Number of PSUs   =     200                    Populat
+> ion size                                           
+>          = 51,809.999
+                                              Design 
+> df                                                 
+>          =        180
+
+-----------------------------------------------------
+> ---------------------
+                         |             Linearized
+                         |       Mean   Std. Err.    
+>  [95% Con                                          
+>          f. Interval]
+-------------------------+---------------------------
+> ---------------------
+c.heard_seen_mal_bi@v024 |
+                western  |    .596746   .0347934     
+>  .5280905                                          
+>              .6654014
+                central  |   .5447055   .0450784     
+>  .4557554                                          
+>              .6336557
+          greater accra  |   .7068247    .039871     
+>    .62815                                          
+>              .7854994
+                  volta  |   .5881952   .0602732     
+>  .4692623                                          
+>              .7071282
+                eastern  |   .5321626    .031317     
+>   .470367                                          
+>              .5939583
+                ashanti  |   .6370393   .0345492     
+>  .5688657                                          
+>              .7052129
+            brong ahafo  |   .5037786   .0277685     
+>  .4489849                                          
+>              .5585723
+               northern  |   .4948388   .0357729     
+>  .4242506                                          
+>              .5654269
+             upper east  |   .5607233   .0228096     
+>  .5157147                                          
+>               .605732
+             upper west  |   .4485579    .027159     
+>  .3949669                                          
+>              .5021488
+-----------------------------------------------------
+> ---------------------
+
+. svy:mean s512, over(v024)
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata =      20          Number of obs   =      5,181
+Number of PSUs   =     200          Population size = 51,809.999
+                                    Design df       =        180
+
+----------------------------------------------------------------
+               |             Linearized
+               |       Mean   Std. Err.     [95% Conf. Interval]
+---------------+------------------------------------------------
+   c.s512@v024 |
+      western  |   1.129812   .0926493      .9469939    1.312631
+      central  |   1.089032   .0537708      .9829297    1.195134
+greater accra  |   1.544137   .0855438      1.375339    1.712934
+        volta  |   1.114541     .05562       1.00479    1.224292
+      eastern  |   1.155158   .0760296      1.005134    1.305182
+      ashanti  |   1.028967   .0386991      .9526053     1.10533
+  brong ahafo  |   1.037214   .0410496      .9562139    1.118214
+     northern  |   1.059526   .0391349      .9823043    1.136749
+   upper east  |   .9823728   .0297174      .9237335    1.041012
+   upper west  |   .9497053   .0343177      .8819886    1.017422
+----------------------------------------------------------------
+
+. svy:mean heard_seen_mal_bi , over(v024)
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata =      20                    Number of obs   =      5,181
+Number of PSUs   =     200                    Population size = 51,809.999
+                                              Design df       =        180
+
+--------------------------------------------------------------------------
+                         |             Linearized
+                         |       Mean   Std. Err.     [95% Conf. Interval]
+-------------------------+------------------------------------------------
+c.heard_seen_mal_bi@v024 |
+                western  |    .596746   .0347934      .5280905    .6654014
+                central  |   .5447055   .0450784      .4557554    .6336557
+          greater accra  |   .7068247    .039871        .62815    .7854994
+                  volta  |   .5881952   .0602732      .4692623    .7071282
+                eastern  |   .5321626    .031317       .470367    .5939583
+                ashanti  |   .6370393   .0345492      .5688657    .7052129
+            brong ahafo  |   .5037786   .0277685      .4489849    .5585723
+               northern  |   .4948388   .0357729      .4242506    .5654269
+             upper east  |   .5607233   .0228096      .5157147     .605732
+             upper west  |   .4485579    .027159      .3949669    .5021488
+--------------------------------------------------------------------------
+
+. svy:tab v024 heard_seen_mal_bi , percent
+(running tabulate on estimation sample)
+
+Number of strata   =        20                  Number of obs     =      5,181
+Number of PSUs     =       200                  Population size   = 51,809.999
+                                                Design df         =        180
+
+-------------------------------
+          |RECODE of s501 (seen
+          |    or heard any    
+          |   messages about   
+          |  malaria in past 6 
+          |       months)      
+   region |    No    Yes  Total
+----------+--------------------
+  western | 3.901  5.773  9.674
+  central | 3.238  3.874  7.111
+  greater | 5.308   12.8   18.1
+    volta | 4.462  6.373  10.84
+  eastern | 5.798  6.595  12.39
+  ashanti | 6.658  11.69  18.34
+ brong ah | 3.618  3.673  7.291
+ northern | 4.695  4.599  9.293
+ upper ea | 1.819  2.321   4.14
+ upper we | 1.552  1.262  2.814
+          | 
+    Total | 41.05  58.95    100
+-------------------------------
+  Key:  cell percentage
+
+  Pearson:
+    Uncorrected   chi2(9)         =  116.1283
+    Design-based  F(5.72, 1029.33)=    4.0062     P = 0.0007
+
+. svy:tab v024 s501, percent
+(running tabulate on estimation sample)
+
+Number of strata   =        20                  Number of obs     =      5,181
+Number of PSUs     =       200                  Population size   = 51,809.999
+                                                Design df         =        180
+
+-------------------------------
+          |  seen or heard any 
+          |   messages about   
+          |  malaria in past 6 
+          |       months       
+   region |    no    yes  Total
+----------+--------------------
+  western | 3.901  5.773  9.674
+  central | 3.238  3.874  7.111
+  greater | 5.308   12.8   18.1
+    volta | 4.462  6.373  10.84
+  eastern | 5.798  6.595  12.39
+  ashanti | 6.658  11.69  18.34
+ brong ah | 3.618  3.673  7.291
+ northern | 4.695  4.599  9.293
+ upper ea | 1.819  2.321   4.14
+ upper we | 1.552  1.262  2.814
+          | 
+    Total | 41.05  58.95    100
+-------------------------------
+  Key:  cell percentage
+
+  Pearson:
+    Uncorrected   chi2(9)         =  116.1283
+    Design-based  F(5.72, 1029.33)=    4.0062     P = 0.0007
+
+. drop heard_seen_mal_bi
+
+. do "C:\Users\hp\AppData\Local\Temp\STD308c_000000.tmp"
+
+. recode s512 (0 8 =0 "No") (1=1 "Yes"), gen (allow_mal_vaccine)
+(131 differences between s512 and allow_mal_vaccine)
+
+. 
+end of do-file
+
+. svy:mean s512, over(v024)
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata =      20          Number of obs   =      5,181
+Number of PSUs   =     200          Population size = 51,809.999
+                                    Design df       =        180
+
+----------------------------------------------------------------
+               |             Linearized
+               |       Mean   Std. Err.     [95% Conf. Interval]
+---------------+------------------------------------------------
+   c.s512@v024 |
+      western  |   1.129812   .0926493      .9469939    1.312631
+      central  |   1.089032   .0537708      .9829297    1.195134
+greater accra  |   1.544137   .0855438      1.375339    1.712934
+        volta  |   1.114541     .05562       1.00479    1.224292
+      eastern  |   1.155158   .0760296      1.005134    1.305182
+      ashanti  |   1.028967   .0386991      .9526053     1.10533
+  brong ahafo  |   1.037214   .0410496      .9562139    1.118214
+     northern  |   1.059526   .0391349      .9823043    1.136749
+   upper east  |   .9823728   .0297174      .9237335    1.041012
+   upper west  |   .9497053   .0343177      .8819886    1.017422
+----------------------------------------------------------------
+
+. svy:mean allow_mal_vaccine , over(v024)
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata =      20                    Number of obs   =      5,181
+Number of PSUs   =     200                    Population size = 51,809.999
+                                              Design df       =        180
+
+--------------------------------------------------------------------------
+                         |             Linearized
+                         |       Mean   Std. Err.     [95% Conf. Interval]
+-------------------------+------------------------------------------------
+c.allow_mal_vaccine@v024 |
+                western  |   .8936196   .0166891      .8606881    .9265512
+                central  |   .9199834   .0197888      .8809355    .9590313
+          greater accra  |   .8290962   .0168497      .7958478    .8623446
+                  volta  |   .8499737   .0151945      .8199915    .8799558
+                eastern  |   .8973186   .0197149      .8584165    .9362208
+                ashanti  |   .9576829   .0085518      .9408081    .9745576
+            brong ahafo  |   .9657379   .0143135      .9374941    .9939817
+               northern  |   .9440608   .0125213      .9193534    .9687681
+             upper east  |   .9180704   .0197741      .8790515    .9570892
+             upper west  |   .9086983    .015986      .8771542    .9402424
+--------------------------------------------------------------------------
+
+. svy:tab v024 s512, percent
+(running tabulate on estimation sample)
+
+Number of strata   =        20                  Number of obs     =      5,181
+Number of PSUs     =       200                  Population size   = 51,809.999
+                                                Design df         =        180
+
+--------------------------------------------------
+          |  allow child to be vaccinated against 
+          |                malaria                
+   region |       no       yes  don't kn     Total
+----------+---------------------------------------
+  western |    .7435     8.645     .2856     9.674
+  central |    .4188     6.542     .1503     7.111
+  greater |    1.476     15.01     1.618      18.1
+    volta |    1.267      9.21     .3583     10.84
+  eastern |    .8731     11.12     .3994     12.39
+  ashanti |    .6128     17.57     .1635     18.34
+ brong ah |    .1847     7.041     .0651     7.291
+ northern |    .3857     8.773     .1341     9.293
+ upper ea |    .3059     3.801     .0333      4.14
+ upper we |    .2425     2.557     .0144     2.814
+          | 
+    Total |     6.51     90.27     3.222       100
+--------------------------------------------------
+  Key:  cell percentage
+
+  Pearson:
+    Uncorrected   chi2(18)        =  202.1814
+    Design-based  F(13.51, 2431.65)=    7.1303    P = 0.0000
+
+. svy:tab v024 allow_mal_vaccine , percent
+(running tabulate on estimation sample)
+
+Number of strata   =        20                  Number of obs     =      5,181
+Number of PSUs     =       200                  Population size   = 51,809.999
+                                                Design df         =        180
+
+-------------------------------
+          |   RECODE of s512   
+          | (allow child to be 
+          | vaccinated against 
+          |      malaria)      
+   region |    No    Yes  Total
+----------+--------------------
+  western | 1.029  8.645  9.674
+  central |  .569  6.542  7.111
+  greater | 3.094  15.01   18.1
+    volta | 1.626   9.21  10.84
+  eastern | 1.272  11.12  12.39
+  ashanti | .7763  17.57  18.34
+ brong ah | .2498  7.041  7.291
+ northern | .5199  8.773  9.293
+ upper ea | .3392  3.801   4.14
+ upper we |  .257  2.557  2.814
+          | 
+    Total | 9.732  90.27    100
+-------------------------------
+  Key:  cell percentage
+
+  Pearson:
+    Uncorrected   chi2(9)         =  137.3456
+    Design-based  F(7.86, 1414.76)=    9.5625     P = 0.0000
+
+. do "C:\Users\hp\AppData\Local\Temp\STD308c_000000.tmp"
+
+. drop allow_mal_vaccine
+
+. 
+end of do-file
+
+. do "C:\Users\hp\AppData\Local\Temp\STD308c_000000.tmp"
+
+. recode s512 (0 8 =0 "No") (1=1 "Yes"), gen (Allow_mal_vaccine)
+(131 differences between s512 and Allow_mal_vaccine)
+
+. 
+end of do-file
+
+. do "C:\Users\hp\AppData\Local\Temp\STD308c_000000.tmp"
+
+. svy:mean Allow_mal_vaccine, over(v024)
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata =      20                    Number of obs   =      5,181
+Number of PSUs   =     200                    Population size = 51,809.999
+                                              Design df       =        180
+
+--------------------------------------------------------------------------
+                         |             Linearized
+                         |       Mean   Std. Err.     [95% Conf. Interval]
+-------------------------+------------------------------------------------
+c.Allow_mal_vaccine@v024 |
+                western  |   .8936196   .0166891      .8606881    .9265512
+                central  |   .9199834   .0197888      .8809355    .9590313
+          greater accra  |   .8290962   .0168497      .7958478    .8623446
+                  volta  |   .8499737   .0151945      .8199915    .8799558
+                eastern  |   .8973186   .0197149      .8584165    .9362208
+                ashanti  |   .9576829   .0085518      .9408081    .9745576
+            brong ahafo  |   .9657379   .0143135      .9374941    .9939817
+               northern  |   .9440608   .0125213      .9193534    .9687681
+             upper east  |   .9180704   .0197741      .8790515    .9570892
+             upper west  |   .9086983    .015986      .8771542    .9402424
+--------------------------------------------------------------------------
+
+. 
+end of do-file
+
+. save "C:\Users\hp\Documents\thesis\Ghana_2019_MIS_analysis_project\data\women_malaria.dta", replace
+file C:\Users\hp\Documents\thesis\Ghana_2019_MIS_analysis_project\data\women_malaria.dta saved
+
+. svy:mean allow_mal_vaccine , over(v024)
+(running mean on estimation sample)
+variable allow_mal_vaccine not found
+r(111);
+
+. svy:mean Allow_mal_vaccine , over(v024)
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata =      20                    Number 
+> of obs                                             
+>          =      5,181
+Number of PSUs   =     200                    Populat
+> ion size                                           
+>          = 51,809.999
+                                              Design 
+> df                                                 
+>          =        180
+
+-----------------------------------------------------
+> ---------------------
+                         |             Linearized
+                         |       Mean   Std. Err.    
+>  [95% Con                                          
+>          f. Interval]
+-------------------------+---------------------------
+> ---------------------
+c.Allow_mal_vaccine@v024 |
+                western  |   .8936196   .0166891     
+>  .8606881                                          
+>              .9265512
+                central  |   .9199834   .0197888     
+>  .8809355                                          
+>              .9590313
+          greater accra  |   .8290962   .0168497     
+>  .7958478                                          
+>              .8623446
+                  volta  |   .8499737   .0151945     
+>  .8199915                                          
+>              .8799558
+                eastern  |   .8973186   .0197149     
+>  .8584165                                          
+>              .9362208
+                ashanti  |   .9576829   .0085518     
+>  .9408081                                          
+>              .9745576
+            brong ahafo  |   .9657379   .0143135     
+>  .9374941                                          
+>              .9939817
+               northern  |   .9440608   .0125213     
+>  .9193534                                          
+>              .9687681
+             upper east  |   .9180704   .0197741     
+>  .8790515                                          
+>              .9570892
+             upper west  |   .9086983    .015986     
+>  .8771542                                          
+>              .9402424
+-----------------------------------------------------
+> ---------------------
+
+. svy:mean Allow_mal_vaccine , over(v024)
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata =      20                    Number of obs   =      5,181
+Number of PSUs   =     200                    Population size = 51,809.999
+                                              Design df       =        180
+
+--------------------------------------------------------------------------
+                         |             Linearized
+                         |       Mean   Std. Err.     [95% Conf. Interval]
+-------------------------+------------------------------------------------
+c.Allow_mal_vaccine@v024 |
+                western  |   .8936196   .0166891      .8606881    .9265512
+                central  |   .9199834   .0197888      .8809355    .9590313
+          greater accra  |   .8290962   .0168497      .7958478    .8623446
+                  volta  |   .8499737   .0151945      .8199915    .8799558
+                eastern  |   .8973186   .0197149      .8584165    .9362208
+                ashanti  |   .9576829   .0085518      .9408081    .9745576
+            brong ahafo  |   .9657379   .0143135      .9374941    .9939817
+               northern  |   .9440608   .0125213      .9193534    .9687681
+             upper east  |   .9180704   .0197741      .8790515    .9570892
+             upper west  |   .9086983    .015986      .8771542    .9402424
+--------------------------------------------------------------------------
+

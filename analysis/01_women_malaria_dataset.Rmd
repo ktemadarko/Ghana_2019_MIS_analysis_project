@@ -1,7 +1,7 @@
 ---
-title: "first-analysis"
-author: "ktemadarko"
-date: "2021-05-01"
+title: "Analysis of the data from the Women's Survey in the 2019 GMIS"
+author: "Ama Owusu-Darko"
+date: "1st May, 2021"
 output: workflowr::wflow_html
 editor_options:
   chunk_output_type: console
@@ -11,12 +11,6 @@ editor_options:
 
 ### Data from Ghana Malaria Indicator Survey 2019
 
-```{r remove eval=FALSE, include=FALSE}
-library(car)
-library(data.table)
-d  = as.data.table(mtcars)
-dcast(d, cyl~., list(min, mean, max), value.var = c('mpg', 'wt'))
-```
 
 ```{r shared-code, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
 source(here::here("code/functions.R"))

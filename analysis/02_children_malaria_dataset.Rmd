@@ -1,7 +1,7 @@
 ---
-title: "analysis_children_dataset"
-author: "ktemadarko"
-date: "2021-05-06"
+title: "Analysis of the data from the Women's Survey in the 2019 GMIS"
+author: "Ama Owusu-Darko"
+date: "6th May, 2021"
 output: workflowr::wflow_html
 editor_options:
   chunk_output_type: console
@@ -41,7 +41,7 @@ child_malaria <- read_dta("data/child_malaria.dta")
 ```
 
 ```{r tibble child dataset, message=FALSE, warning=FALSE, include=FALSE}
-View(chm)
+#View(chm)
 chm <- tibble(child_malaria)
 ```
 
@@ -73,7 +73,7 @@ dhsdesign<-chm1%>%
 ```{r 01_srvyr wrong way, message=FALSE, warning=FALSE, include=FALSE}
 dhsdesign%>%
   group_by(v024)%>%
-  summarise(m=survey_mean(anaemiaStatus))
+  summarise(m=survey_mean())
 
 
 ```

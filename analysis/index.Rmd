@@ -10,6 +10,6 @@ editor_options:
 
 Akwaaba to my research website.
 
-Click on this [link](first-analysis.html) to see my results.
+Click on this [link](01_women_malaria_dataset.html) to see results of the analysis on the Women's Data set.
 
-Click on this [link](analysis_children_dataset.html) to see my results.
+Click on this [link](02_children_malaria_dataset.html) to see results of the analysis on the Children's Data set.
